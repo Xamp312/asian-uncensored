@@ -19,8 +19,8 @@ class CreateVideosTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete("cascade")->onUpdate("cascade");
             $table->string('title');
             $table->integer('is_private')->default(0);
-            $table->string('views')->default(0);
-            $table->string('likes')->default(0);
+            $table->integer('views')->default(0);
+            $table->integer('likes')->default(0);
             $table->timestamps();
         });
     }
