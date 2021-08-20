@@ -15,9 +15,11 @@ class CreateVideosTable extends Migration
     {
         Schema::create('videos', function (Blueprint $table) {
             $table->id();
+            $table->string('slug')->unique();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete("cascade")->onUpdate("cascade");
             $table->string('title');
+            $table->text('description');
             $table->integer('is_private')->default(0);
             $table->integer('views')->default(0);
             $table->integer('likes')->default(0);
