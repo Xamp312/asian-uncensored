@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Video;
-use App\Models\Like;
+use App\Models\Vote;
 
 class HomeController extends Controller
 {
