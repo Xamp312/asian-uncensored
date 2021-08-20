@@ -21,7 +21,7 @@ class CreateVideosTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete("cascade")->onUpdate("cascade");
             $table->string('title');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->integer('is_private')->default(0);
             $table->integer('views')->default(0);
             $table->timestamps();

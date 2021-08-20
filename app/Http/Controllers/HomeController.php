@@ -16,6 +16,14 @@ class HomeController extends Controller
      * @return view
 
      **/
+
+     public function index(){
+
+        dd('Logged in');
+     }
+
+
+
     public function landingPage()
     {
 
@@ -26,11 +34,6 @@ class HomeController extends Controller
         return view('pages.home', compact('users', 'videos'));
     }
 
-    public function deleteVideo(Request $request){
-
-        $video = Video::find($request->id);
-//delete video file here
-        $video->delete();
-    }
+    
 
 }
