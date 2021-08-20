@@ -86,10 +86,6 @@ class VideoController extends Controller
     }
 
 
-    public function like(Request $request){
-
-        
-    }
 
     
 }
