@@ -20,11 +20,27 @@ class VideoController extends Controller
             $video->is_private = $request->is_private;
         }
 
-        $video->save;
+        $video->save();
 
-        if(Request::hasFile('file')){
 
-            $file = Request::file('file');
+        if($request->hasFile('image')){
+        
+        
+            $image = $request->file('image');
+            $filename = $video->slug. '.' . $image->getClientOriginalExtension();    
+            $image = Image::make($image);
+
+            $image->save('uploads/thumbnails' . $filename);
+
+            $video->image_name = $filename;
+
+        }
+
+
+
+        if(Request::hasFile('video')){
+
+            $file = Request::file('video');
             $filename = $video->slug. '.' . $file->getClientOriginalExtension();
             $path = public_path().'/uploads/videos';
             return $file->move($path, $filename);
@@ -35,8 +51,8 @@ class VideoController extends Controller
 // post_max_size = 10M
 // memory_limit = 32M
         }
-        $video->filename = $filename;
-        $cideo->save();
+        $video->video_name = $filename;
+        $video->save();
 
 
 
