@@ -1,6 +1,11 @@
 @extends('layout')
 
 
+@section('head_page')
+    <title>Asian Uncensored</title>
+@endsection
+
+
 @section('content')
     @include('partials.nav')
 <div id="wrapper">

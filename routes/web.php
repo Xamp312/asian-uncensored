@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,3 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
  */
 Route::get('/', [HomeController::class, 'landingPage'])->name('landingPage');
+Route::get('/video', [VideoController::class, 'videoPage'])->name('videoPage');
+Route::get('/video/upload', [VideoController::class, 'videoUploadPage'])->name('videoUploadPage');
+
+Route::get('/login', function () {
+    return view('pages.login');
+});
+
+Route::get('/register', function () {
+    return view('pages.register');
+});

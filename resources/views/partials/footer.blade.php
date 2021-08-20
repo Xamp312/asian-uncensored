@@ -46,17 +46,17 @@
 
 
 
-<script src="vendor/jquery/jquery.min.js" type="text/javascript"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+<script src="/vendor/jquery/jquery.min.js" type="text/javascript"></script>
+<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js" type="text/javascript"></script>
 
-<script src="vendor/jquery-easing/jquery.easing.min.js" type="text/javascript"></script>
+<script src="/vendor/jquery-easing/jquery.easing.min.js" type="text/javascript"></script>
 
-<script src="vendor/owl-carousel/owl.carousel.js" type="text/javascript"></script>
+<script src="/vendor/owl-carousel/owl.carousel.js" type="text/javascript"></script>
 
-<script src="js/custom.js" type="text/javascript"></script>
+<script src="/js/custom.js" type="text/javascript"></script>
 
-<script src="js/rocket-loader.min.js" type="text/javascript"></script>
-<script src="js/beacon.min.js" type="text/javascript"></script>
+<script src="/js/rocket-loader.min.js" type="text/javascript"></script>
+<script src="/js/beacon.min.js" type="text/javascript"></script>
 
 </body>
 </html>
