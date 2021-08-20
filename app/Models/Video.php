@@ -10,7 +10,8 @@ use Spatie\Sluggable\SlugOptions;
 
 class Video extends Model
 {
-    use HasFactory;     use Sluggable;
+    use HasFactory;        use HasSlug;
+
 
     public function getSlugOptions() : SlugOptions
     {
