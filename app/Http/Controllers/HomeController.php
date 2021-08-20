@@ -22,9 +22,8 @@ class HomeController extends Controller
 
         $users = User::orderby('created_at', 'desc')->get();
         $videos = Video::orderby('created_at', 'desc')->get();
-        $likes = Like::all();
 
-        return view('pages.home', compact('users', 'videos', 'likes'));
+        return view('pages.home', compact('users', 'videos'));
     }
 
     public function deleteVideo(Request $request){
