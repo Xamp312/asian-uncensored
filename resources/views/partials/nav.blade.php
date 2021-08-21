@@ -16,13 +16,21 @@
 </div>
 </form>
 
+
+
 <ul class="navbar-nav ml-auto ml-md-0 osahan-right-navbar">
+
+
+@if(\Auth::check())
+
 <li class="nav-item mx-1">
 <a class="nav-link" href="{{ route('videoUploadPage') }}">
 <i class="fas fa-plus-circle fa-fw"></i>
 Upload Video
 </a>
 </li>
+
+
 <li class="nav-item dropdown no-arrow mx-1">
 <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 <i class="fas fa-bell fa-fw"></i>
@@ -47,10 +55,13 @@ Upload Video
 <a class="dropdown-item" href="#"><i class="fas fa-fw fa-star "></i> &nbsp; Something else here</a>
 </div>
 </li>
+
+
+
 <li class="nav-item dropdown no-arrow osahan-right-navbar-user">
 <a class="nav-link dropdown-toggle user-dropdown-link" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 <img alt="Avatar" src="/img/user.png">
-Osahan
+{{ Auth::user()->name }}
 </a>
 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
 <a class="dropdown-item" href="/profile"><i class="fas fa-fw fa-user-circle"></i> &nbsp; My Account</a>
@@ -60,5 +71,31 @@ Osahan
 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal"><i class="fas fa-fw fa-sign-out-alt"></i> &nbsp; Logout</a>
 </div>
 </li>
+
+@else 
+
+<li class="nav-item mx-1">
+<a class="nav-link" href="{{ route('login') }}">
+<i class="fas fa-sign-in-alt fa-fw"></i>
+Login
+</a>
+</li>
+
+
+<li class="nav-item mx-2">
+<a class="nav-link" href="{{ route('register') }}">
+<i class="fas fa-registered fa-fw"></i>
+Register
+</a>
+</li>
+
+
+@endif
+
+
+
+
+
+
 </ul>
 </nav>
