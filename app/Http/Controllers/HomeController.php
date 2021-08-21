@@ -27,7 +27,9 @@ class HomeController extends Controller
 
         }
         else{
-            return view('pages.profile');
+
+            $videos = Video::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
+            return view('pages.profile',compact('user', 'videos'));
 
         }
      }
