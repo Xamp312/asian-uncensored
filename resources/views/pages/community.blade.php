@@ -20,6 +20,8 @@
 <div class="row">
 <div class="col-md-12">
 <div class="main-title">
+
+	<!-- 
 <div class="btn-group float-right right-action">
 <a href="#" class="right-action-link text-gray" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 Sort by <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -30,218 +32,70 @@ Sort by <i class="fa fa-caret-down" aria-hidden="true"></i>
 <a class="dropdown-item" href="#"><i class="fas fa-fw fa-times-circle"></i> &nbsp; Close</a>
 </div>
 </div>
-<h6>Channels</h6>
+ -->
+
+
+<h6>Community</h6>
 </div>
 </div>
+
+
+@foreach($users as $user)
+
 <div class="col-xl-3 col-sm-6 mb-3">
 <div class="channels-card">
 <div class="channels-card-image">
-<a href="#"><img class="img-fluid" src="img/s1.png" alt=""></a>
-<div class="channels-card-image-btn"><button type="button" class="btn btn-outline-danger btn-sm">Subscribe <strong>1.4M</strong></button></div>
+<a href="{{ route('profile' , $user->slug )}}"><img class="img-fluid" src="/uploads/users/{{ $user->image }}" alt=""></a>
+
 </div>
 <div class="channels-card-body">
-<div class="channels-title">
-<a href="#">Channels Name</a>
+<div class="channels-title" style="margin-top: 10px;">
+<a href="{{ route('profile' , $user->slug )}}">{{ $user->name }}</a>
 </div>
 <div class="channels-view">
-382,323 subscribers
+{{ \App\Models\Video::where('user_id', $user->id)->count() }} Videos
 </div>
 </div>
 </div>
 </div>
-<div class="col-xl-3 col-sm-6 mb-3">
-<div class="channels-card">
-<div class="channels-card-image">
-<a href="#"><img class="img-fluid" src="img/s2.png" alt=""></a>
-<div class="channels-card-image-btn"><button type="button" class="btn btn-outline-danger btn-sm">Subscribe <strong>1.4M</strong></button></div>
+
+
+@endforeach
+
+
 </div>
-<div class="channels-card-body">
-<div class="channels-title">
-<a href="#">Channels Name</a>
+
+
+<div>
+
+
+
+
 </div>
-<div class="channels-view">
-382,323 subscribers
-</div>
-</div>
-</div>
-</div>
- <div class="col-xl-3 col-sm-6 mb-3">
-<div class="channels-card">
-<div class="channels-card-image">
-<a href="#"><img class="img-fluid" src="img/s3.png" alt=""></a>
-<div class="channels-card-image-btn"><button type="button" class="btn btn-outline-secondary btn-sm">Subscribed <strong>1.4M</strong></button></div>
-</div>
-<div class="channels-card-body">
-<div class="channels-title">
-<a href="#">Channels Name <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle"></i></span></a>
-</div>
-<div class="channels-view">
-382,323 subscribers
-</div>
-</div>
-</div>
-</div>
-<div class="col-xl-3 col-sm-6 mb-3">
-<div class="channels-card">
-<div class="channels-card-image">
-<a href="#"><img class="img-fluid" src="img/s4.png" alt=""></a>
-<div class="channels-card-image-btn"><button type="button" class="btn btn-outline-danger btn-sm">Subscribe <strong>1.4M</strong></button></div>
-</div>
-<div class="channels-card-body">
-<div class="channels-title">
-<a href="#">Channels Name</a>
-</div>
-<div class="channels-view">
-382,323 subscribers
-</div>
-</div>
-</div>
-</div>
-<div class="col-xl-3 col-sm-6 mb-3">
-<div class="channels-card">
-<div class="channels-card-image">
-<a href="#"><img class="img-fluid" src="img/s6.png" alt=""></a>
-<div class="channels-card-image-btn"><button type="button" class="btn btn-outline-danger btn-sm">Subscribe <strong>1.4M</strong></button></div>
-</div>
-<div class="channels-card-body">
-<div class="channels-title">
-<a href="#">Channels Name</a>
-</div>
-<div class="channels-view">
-382,323 subscribers
-</div>
-</div>
-</div>
-</div>
-<div class="col-xl-3 col-sm-6 mb-3">
-<div class="channels-card">
-<div class="channels-card-image">
-<a href="#"><img class="img-fluid" src="img/s8.png" alt=""></a>
-<div class="channels-card-image-btn"><button type="button" class="btn btn-outline-danger btn-sm">Subscribe <strong>1.4M</strong></button></div>
-</div>
-<div class="channels-card-body">
-<div class="channels-title">
-<a href="#">Channels Name</a>
-</div>
-<div class="channels-view">
-382,323 subscribers
-</div>
-</div>
-</div>
-</div>
-<div class="col-xl-3 col-sm-6 mb-3">
-<div class="channels-card">
-<div class="channels-card-image">
-<a href="#"><img class="img-fluid" src="img/s5.png" alt=""></a>
-<div class="channels-card-image-btn"><button type="button" class="btn btn-outline-danger btn-sm">Subscribe <strong>1.4M</strong></button></div>
-</div>
-<div class="channels-card-body">
-<div class="channels-title">
-<a href="#">Channels Name</a>
-</div>
-<div class="channels-view">
-382,323 subscribers
-</div>
-</div>
-</div>
-</div>
-<div class="col-xl-3 col-sm-6 mb-3">
-<div class="channels-card">
-<div class="channels-card-image">
-<a href="#"><img class="img-fluid" src="img/s6.png" alt=""></a>
-<div class="channels-card-image-btn"><button type="button" class="btn btn-outline-danger btn-sm">Subscribe <strong>1.4M</strong></button></div>
-</div>
-<div class="channels-card-body">
-<div class="channels-title">
-<a href="#">Channels Name</a>
-</div>
-<div class="channels-view">
-382,323 subscribers
-</div>
-</div>
-</div>
-</div>
-<div class="col-xl-3 col-sm-6 mb-3">
-<div class="channels-card">
-<div class="channels-card-image">
-<a href="#"><img class="img-fluid" src="img/s8.png" alt=""></a>
-<div class="channels-card-image-btn"><button type="button" class="btn btn-outline-danger btn-sm">Subscribe <strong>1.4M</strong></button></div>
-</div>
-<div class="channels-card-body">
-<div class="channels-title">
-<a href="#">Channels Name</a>
-</div>
-<div class="channels-view">
-382,323 subscribers
-</div>
-</div>
-</div>
-</div>
-<div class="col-xl-3 col-sm-6 mb-3">
-<div class="channels-card">
-<div class="channels-card-image">
-<a href="#"><img class="img-fluid" src="img/s7.png" alt=""></a>
-<div class="channels-card-image-btn"><button type="button" class="btn btn-outline-secondary btn-sm">Subscribed <strong>1.4M</strong></button></div>
-</div>
-<div class="channels-card-body">
-<div class="channels-title">
-<a href="#">Channels Name <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle"></i></span></a>
-</div>
-<div class="channels-view">
-382,323 subscribers
-</div>
-</div>
-</div>
-</div>
-<div class="col-xl-3 col-sm-6 mb-3">
-<div class="channels-card">
-<div class="channels-card-image">
-<a href="#"><img class="img-fluid" src="img/s1.png" alt=""></a>
-<div class="channels-card-image-btn"><button type="button" class="btn btn-outline-danger btn-sm">Subscribe <strong>1.4M</strong></button></div>
-</div>
-<div class="channels-card-body">
-<div class="channels-title">
-<a href="#">Channels Name</a>
-</div>
-<div class="channels-view">
-382,323 subscribers
-</div>
-</div>
-</div>
-</div>
-<div class="col-xl-3 col-sm-6 mb-3">
-<div class="channels-card">
-<div class="channels-card-image">
-<a href="#"><img class="img-fluid" src="img/s2.png" alt=""></a>
-<div class="channels-card-image-btn"><button type="button" class="btn btn-outline-danger btn-sm">Subscribe <strong>1.4M</strong></button></div>
-</div>
-<div class="channels-card-body">
-<div class="channels-title">
-<a href="#">Channels Name</a>
-</div>
-<div class="channels-view">
-382,323 subscribers
-</div>
-</div>
-</div>
-</div>
-</div>
-<nav aria-label="Page navigation example">
+
+
+	@if ($users->lastPage() > 1)
 <ul class="pagination justify-content-center pagination-sm mb-4">
-<li class="page-item disabled">
-<a class="page-link" href="#" tabindex="-1">Previous</a>
-</li>
-<li class="page-item active"><a class="page-link" href="#">1</a></li>
-<li class="page-item"><a class="page-link" href="#">2</a></li>
-<li class="page-item"><a class="page-link" href="#">3</a></li>
-<li class="page-item">
-<a class="page-link" href="#">Next</a>
-</li>
+    <li class="page-item {{ ($users->currentPage() == 1) ? ' disabled' : '' }}">
+        <a class="page-link" href="{{ $users->url(1) }}">Previous</a>
+    </li>
+    @for ($i = 1; $i <= $users->lastPage(); $i++)
+        <li class="page-item {{ ($users->currentPage() == $i) ? ' active' : '' }}">
+            <a  class="page-link" href="{{ $users->url($i) }}">{{ $i }}</a>
+        </li>
+    @endfor
+    <li class="page-item {{ ($users->currentPage() == $users->lastPage()) ? ' disabled' : '' }}">
+        <a class="page-link" href="{{ $users->url($users->currentPage()+1) }}" >Next</a>
+    </li>
 </ul>
-</nav>
+@endif
+
 </div>
 <hr>
-<div class="video-block section-padding">
+
+
+
+<!-- <div class="video-block section-padding">
 <div class="row">
 <div class="col-md-12">
 <div class="main-title">
@@ -255,6 +109,9 @@ Sort by <i class="fa fa-caret-down" aria-hidden="true"></i>
 <a class="dropdown-item" href="#"><i class="fas fa-fw fa-times-circle"></i> &nbsp; Close</a>
 </div>
 </div>
+
+
+
 <h6>Featured Videos</h6>
 </div>
 </div>
@@ -338,8 +195,12 @@ Education <a title="" data-placement="top" data-toggle="tooltip" href="#" data-o
 </div>
 </div>
 </div>
+
+
 </div>
 </div>
+ -->
+
 </div>
 
 

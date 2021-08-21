@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\VideoController;
+use App\Http\Controllers\CommunityController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,9 +44,11 @@ Route::get('/settings', function () {
     return view('pages.settings');
 });
 
-Route::get('/community', function () {
-    return view('pages.community');
-});
+
+
+
+Route::get('/community', [CommunityController::class, 'communityPage'])->name('communityPage');
+
 
 Route::get('/profile/{slug}', function ($slug) {
     
