@@ -37,11 +37,7 @@ class HomeController extends Controller
     public function landingPage()
     {
 
-
-        $users = User::orderby('created_at', 'desc')->get();
-        $videos = Video::orderby('created_at', 'desc')->get();
-
-        return view('pages.home', compact('users', 'videos'));
+        return view('pages.home');
     }
 
     
