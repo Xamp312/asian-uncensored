@@ -94,7 +94,7 @@
                                         Close</a>
                                 </div>
                             </div> -->
-                            <h6>Latest Videos</h6>
+                            <h6>Most Views</h6>
                         </div>
                     </div>
 
