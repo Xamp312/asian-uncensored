@@ -20,6 +20,12 @@ class VideoController extends Controller
             $video->is_private = $request->is_private;
         }
 
+        $category = Category::find($request->category_id);
+        $category->count = $category->count + 1;
+        $category->save();
+
+        $video->category_id = $category->id;
+
         $video->save();
 
 
