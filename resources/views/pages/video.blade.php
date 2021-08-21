@@ -173,7 +173,7 @@
 
 
 <br />  <br />
-<small style="">Published an {{ $video->created_at->diffForHumans() }}</small>
+<small style="">Published {{ $video->created_at->diffForHumans() }}</small>
 
 
 
@@ -208,7 +208,7 @@
 
 
 
-<p><a href="#"><strong>{{$video->user->name}}</strong></a> 
+<p><a href="{{route('profile', $video->user->slug)}}"><strong>{{$video->user->name}}</strong></a> 
 
 
 
@@ -247,7 +247,7 @@
 	
 @foreach($usersOnVideoOnline as $onlineUser)
 	<li>
-			<a href="#"> {{ $video->user->name }}  </a>
+			<a href="#"> {{ $onlineUser->name }}  </a>
 	</li>
 @endforeach
 </ul>

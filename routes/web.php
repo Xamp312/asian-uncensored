@@ -46,6 +46,16 @@ Route::get('/community', function () {
     return view('pages.community');
 });
 
-Route::get('/profile', function () {
+Route::get('/profile/{slug}', function ($slug) {
+    
+    $user = User::where('slug', $slug)->first();
+
+    if(Auth::user() == $user){
+        dd('hello');
+    }
+
+
+
+
     return view('pages.profile');
-});
+})->name('profile');
