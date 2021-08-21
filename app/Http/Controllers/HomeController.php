@@ -19,7 +19,7 @@ class HomeController extends Controller
 
      public function index(){
 
-        dd('Logged in');
+        return view('pages.profile');
      }
 
 
