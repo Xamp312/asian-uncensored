@@ -26,7 +26,7 @@ class VideoController extends Controller
         $video->user_id = Auth::id();
 
         $category = Category::find($request->category_id);
-        $category->count = $category->count + 1;
+        $category->count += 1;
         $category->save();
 
         $video->category_id = $category->id;
@@ -94,7 +94,6 @@ class VideoController extends Controller
 
     public function videoPage($slug)
     {
-
 
 
         $video = Video::where('slug', $slug)->first();

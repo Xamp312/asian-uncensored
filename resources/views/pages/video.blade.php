@@ -40,7 +40,8 @@
 <div class="col-md-8">
 <div class="single-video-left">
 <div class="single-video" videoId="{{ $video->id }}">
-<iframe width="100%" height="315" src="../../../embed/8LWZSGNjuF0.html?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+  <video controls controlsList="nodownload" width="100%" height="315" src="/uploads/videos/{{$video->video_name}}"></video>
+<!-- <iframe width="100%" height="315" src="../../../embed/8LWZSGNjuF0.html?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe> -->
 </div>
 <div class="single-video-title box mb-3">
 <h2>
@@ -203,11 +204,11 @@
 </div>
 
 
-<img class="img-fluid" src="/img/{{ $video->user->image }}" alt="">
+<img class="img-fluid" src="/uploads/users/{{ $video->user->image }}" alt="">
 
 
 
-<p><a href="#"><strong>{{ $video->user->name}}</strong></a> 
+<p><a href="#"><strong>{{$video->user->name}}</strong></a> 
 
 
 
@@ -246,7 +247,7 @@
 	
 @foreach($usersOnVideoOnline as $onlineUser)
 	<li>
-			<a href="#"> {{ $onlineUser->name }}  </a>
+			<a href="#"> {{ $video->user->name }}  </a>
 	</li>
 @endforeach
 </ul>
