@@ -17,7 +17,7 @@ class CreateVideosTable extends Migration
             $table->id();
             $table->string('slug')->unique();
             $table->string('video_name')->nullable();
-            $table->string('image_name'->nullable());
+            $table->string('image_name')->nullable();
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete("cascade")->onUpdate("cascade");
             $table->unsignedBigInteger('user_id');
