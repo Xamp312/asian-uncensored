@@ -184,4 +184,22 @@ class VideoController extends Controller
             'category' => $category,
         ]);
     }
+
+    public function profile($slug){
+
+        $user = User::where('slug', $slug)->first();
+
+    if(Auth::user() == $user){
+        return redirect()->route('home');
+    }
+
+    else{
+
+        return view('pages.profile',compact('user'));
+
+         
+    }
+    }
+
+
 }

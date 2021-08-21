@@ -24,6 +24,10 @@ class CreateUsersTable extends Migration
             $table->integer('video_id')->default(0);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->text('about')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('instagram')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

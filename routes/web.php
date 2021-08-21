@@ -3,7 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
-
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +26,8 @@ Route::post('/video/rate', [VideoController::class, 'videoRate'])->name('videoRa
 
 Route::post('/video/upload', [VideoController::class, 'upload'])->name('videoUpload');
 
+Route::get('/profile/{slug}','App\Http\Controllers\VideoController@profile' )->name('profile');
+
 Route::get('/login', function () {
     return view('pages.login');
 });
@@ -46,16 +48,3 @@ Route::get('/community', function () {
     return view('pages.community');
 });
 
-Route::get('/profile/{slug}', function ($slug) {
-    
-    $user = User::where('slug', $slug)->first();
-
-    if(Auth::user() == $user){
-        dd('hello');
-    }
-
-
-
-
-    return view('pages.profile');
-})->name('profile');
