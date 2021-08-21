@@ -1,6 +1,6 @@
 <ul class="sidebar navbar-nav">
 <li class="nav-item active">
-<a class="nav-link" href="index.html">
+<a class="nav-link" href="{{ route('landingPage') }}">
 <i class="fas fa-fw fa-home"></i>
 <span>Home</span>
 </a>
@@ -22,7 +22,7 @@
 </li>
 
 <li class="nav-item">
-<a class="nav-link" href="channels.html">
+<a class="nav-link" href="/community">
 <i class="fas fa-fw fa-users"></i>
 <span>Community</span>
 </a>
@@ -30,7 +30,7 @@
 
 
 <li class="nav-item">
-<a class="nav-link" href="upload-video.html">
+<a class="nav-link" href="{{ route('videoUploadPage') }}">
 <i class="fas fa-fw fa-cloud-upload-alt"></i>
 <span>Upload Video</span>
 </a>

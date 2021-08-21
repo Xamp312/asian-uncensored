@@ -87,5 +87,12 @@ class VideoController extends Controller
 
 
 
-    
+    public function videoPage(){
+        return view('pages.video');
+    }
+
+
+    public function videoUploadPage(){
+        return view('pages.uploadVideo');
+    }
 }

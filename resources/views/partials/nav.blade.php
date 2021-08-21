@@ -3,7 +3,7 @@
 <button class="btn btn-link btn-sm text-secondary order-1 order-sm-0" id="sidebarToggle">
 <i class="fas fa-bars"></i>
 </button> &nbsp;&nbsp;
-<a class="navbar-brand " href="index.html"><img class="img-fluid" alt="" src="/img/logo-6.png" style="height:28px;"></a>
+<a class="navbar-brand " href="{{ route('landingPage') }}"><img class="img-fluid" alt="" src="/img/logo-6.png" style="height:28px;"></a>
 
 <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-5 my-2 my-md-0 osahan-navbar-search">
 <div class="input-group">
@@ -18,7 +18,7 @@
 
 <ul class="navbar-nav ml-auto ml-md-0 osahan-right-navbar">
 <li class="nav-item mx-1">
-<a class="nav-link" href="upload.html">
+<a class="nav-link" href="{{ route('videoUploadPage') }}">
 <i class="fas fa-plus-circle fa-fw"></i>
 Upload Video
 </a>
@@ -53,9 +53,9 @@ Upload Video
 Osahan
 </a>
 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-<a class="dropdown-item" href="account.html"><i class="fas fa-fw fa-user-circle"></i> &nbsp; My Account</a>
-<a class="dropdown-item" href="subscriptions.html"><i class="fas fa-fw fa-video"></i> &nbsp; Subscriptions</a>
-<a class="dropdown-item" href="settings.html"><i class="fas fa-fw fa-cog"></i> &nbsp; Settings</a>
+<a class="dropdown-item" href="/profile"><i class="fas fa-fw fa-user-circle"></i> &nbsp; My Account</a>
+
+<a class="dropdown-item" href="/settings"><i class="fas fa-fw fa-cog"></i> &nbsp; Settings</a>
 <div class="dropdown-divider"></div>
 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal"><i class="fas fa-fw fa-sign-out-alt"></i> &nbsp; Logout</a>
 </div>

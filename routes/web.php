@@ -29,3 +29,25 @@ Route::get('/register', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+Route::get('/settings', function () {
+    return view('pages.settings');
+});
+
+
+Route::get('/community', function () {
+    return view('pages.community');
+});
+
+
+Route::get('/profile', function () {
+    return view('pages.profile');
+});
+
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
