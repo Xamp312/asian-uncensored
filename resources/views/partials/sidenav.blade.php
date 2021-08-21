@@ -28,6 +28,7 @@
 </a>
 </li>
 
+@if(\Auth::check())
 
 <li class="nav-item">
 <a class="nav-link" href="{{ route('videoUploadPage') }}">
@@ -35,7 +36,7 @@
 <span>Upload Video</span>
 </a>
 </li>
-
+@endif
 <!-- <li class="nav-item">
 <a class="nav-link" href="history-page.html">
 <i class="fas fa-fw fa-history"></i>
