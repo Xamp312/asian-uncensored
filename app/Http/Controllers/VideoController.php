@@ -44,12 +44,12 @@ class VideoController extends Controller
 
 
 
-        if(Request::hasFile('video')){
+        if($request->hasFile('video')){
 
-            $file = Request::file('video');
-            $filename = $video->slug. '.' . $file->getClientOriginalExtension();
+            $video = Request::file('video');
+            $filename = $video->slug. '.' . $video->getClientOriginalExtension();
             $path = public_path().'/uploads/videos';
-            return $file->move($path, $filename);
+            return $video->save($path, $filename);
             
 //             php.ini files contains some limits that might affect this. Try changing these to high enough values:
 
