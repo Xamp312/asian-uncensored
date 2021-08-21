@@ -15,8 +15,20 @@ use Illuminate\Support\Facades\Route;
 |
  */
 Route::get('/', [HomeController::class, 'landingPage'])->name('landingPage');
-Route::get('/video', [VideoController::class, 'videoPage'])->name('videoPage');
+
+
+
+
+Route::get('/videos/latest', [VideoController::class, 'latestVideos'])->name('latestVideos');
+
 Route::get('/video/upload', [VideoController::class, 'videoUploadPage'])->name('videoUploadPage');
+Route::get('/video/{slug}', [VideoController::class, 'videoPage'])->name('videoPage');
+
+
+Route::post('/video/react' , [VideoController::class, 'videoReact'])->name('videoReact');
+
+Route::post('/video/upload', [VideoController::class, 'upload'])->name('videoUpload');
+
 
 Route::get('/login', function () {
     return view('pages.login');

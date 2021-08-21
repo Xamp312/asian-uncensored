@@ -16,7 +16,7 @@
 <a class="dropdown-item" href="forgot-password.html">Top Rated</a>
 <a class="dropdown-item" href="login.html">Most Viewed</a>
 <a class="dropdown-item" href="register.html">Most Likes</a>
-<a class="dropdown-item" href="forgot-password.html">Latest Videos</a>
+<a class="dropdown-item" href="{{ route('latestVideos') }}">Latest Videos</a>
 
 
 </li>
@@ -48,6 +48,8 @@
 <h6><i class="fas fa-fw fa-list-alt"></i> &nbsp
  Categories</h6>
 <ul>
+
+
 <li style="margin-left:2rem;">
 <a href="subscriptions.html" style="color:#c0392b">
 Your Life
