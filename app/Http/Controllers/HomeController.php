@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Video;
 use App\Models\Vote;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -19,7 +20,16 @@ class HomeController extends Controller
 
      public function index(){
 
-        return view('pages.profile');
+        $user = Auth::user();
+
+        if($user->is_admin == 1){
+            dd('Admin Here');
+
+        }
+        else{
+            return view('pages.profile');
+
+        }
      }
 
 
