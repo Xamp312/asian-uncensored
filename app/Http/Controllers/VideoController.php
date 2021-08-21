@@ -17,7 +17,7 @@ class VideoController extends Controller
         $video->title = $request->title;
         $video->description = $request->description;
         if($request->is_private){
-            $video->is_private = $request->is_private;
+            $video->is_private = 1;
         }
 
         $category = Category::find($request->category_id);
