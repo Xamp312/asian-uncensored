@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Category;
 use App\Models\User;
 use App\Models\Video;
-use App\Models\Vote;
 use Auth;
 
 class HomeController extends Controller
@@ -18,30 +19,30 @@ class HomeController extends Controller
 
      **/
 
-     public function index(){
+    public function index()
+    {
 
         $user = Auth::user();
 
-        if($user->is_admin == 1){
+        if ($user->is_admin == 1) {
             dd('Admin Here');
 
-        }
-        else{
+        } else {
 
             $videos = Video::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
-            return view('home',compact('user', 'videos'));
+            return view('home', compact('user', 'videos'));
 
         }
-     }
-
-
+    }
 
     public function landingPage()
     {
 
-        return view('pages.home');
-    }
+        $users = User::orderby('created_at', 'desc')->get();
+        $videos = Video::orderby('created_at', 'desc')->get();
+        $category = Category::all();
 
-    
+        return view('pages.home', compact('users', 'videos', 'category'));
+    }
 
 }

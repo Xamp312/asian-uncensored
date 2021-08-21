@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
-
+use Cache;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, HasSlug;
@@ -50,4 +50,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+
+    public function isOnline() {
+        return Cache::has('user-is-online-'. $this->id);
+    }
 }
