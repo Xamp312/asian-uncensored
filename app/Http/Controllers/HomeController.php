@@ -35,14 +35,16 @@ class HomeController extends Controller
         }
     }
 
-    public function landingPage()
-    {
 
+
+        public function landingPage()
+                 {
         $users = User::orderby('created_at', 'desc')->get();
-        $videos = Video::orderby('created_at', 'desc')->get();
+
+        $videos = Video::orderby('created_at', 'desc')->paginate(16);
         $category = Category::all();
 
         return view('pages.home', compact('users', 'videos', 'category'));
-    }
+                 }
 
 }

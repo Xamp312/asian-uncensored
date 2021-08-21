@@ -45,7 +45,7 @@
 </li> -->
 
 <li class="nav-item channel-sidebar-list">
-<h6><i class="fas fa-fw fa-list-alt"></i> &nbsp
+<h6><!-- <i class="fas fa-fw fa-list-alt"></i> &nbsp -->
  Categories</h6>
 <ul>
 
