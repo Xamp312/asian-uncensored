@@ -49,8 +49,8 @@ class VideoController extends Controller
             $video = Request::file('video');
             $filename = $video->slug. '.' . $video->getClientOriginalExtension();
             $path = public_path().'/uploads/videos';
-            return $video->save($path, $filename);
-            
+            $video->save('uploads/thumbnails' . $filename);
+          
 //             php.ini files contains some limits that might affect this. Try changing these to high enough values:
 
 // upload_max_filesize = 10M
