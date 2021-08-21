@@ -16,7 +16,7 @@ class VideoController extends Controller
         $video = new Video();
         $video->title = $request->title;
         $video->description = $request->description;
-        
+
         if($request->is_private){
             $video->is_private = 1;
         }
@@ -71,13 +71,6 @@ $video->video_name = $filename;
         $videos = Video::orderBy('views', 'desc')->get();
 
         return view('mostViewed', compact('videos'));
-
-    }
-
-    public function mostLiked(){
-        $videos = Video::orderBy('likes', 'desc')->get();
-
-        return view('mostLiked', compact('videos'));
 
     }
     
