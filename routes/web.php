@@ -22,6 +22,7 @@ Route::get('/video/upload', [VideoController::class, 'videoUploadPage'])->name('
 Route::get('/video/{slug}', [VideoController::class, 'videoPage'])->name('videoPage');
 
 Route::post('/video/react', [VideoController::class, 'videoReact'])->name('videoReact');
+Route::post('/video/rate', [VideoController::class, 'videoRate'])->name('videoRate');
 
 Route::post('/video/upload', [VideoController::class, 'upload'])->name('videoUpload');
 

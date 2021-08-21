@@ -3,6 +3,27 @@
 
 @section('head_page')
     <title>Asian Uncensored</title>
+
+    <style type="text/css">
+    	
+    	.star-rating {
+  line-height:32px;
+  font-size:1.25em;
+  color:#fff;
+}
+
+.star-rating .fa-star {color: yellow}
+
+
+.whiteStar {
+	color: white !important;
+}
+
+.yellowStar {
+	color: yellow;
+}
+
+    </style>
 @endsection
 
 
@@ -18,7 +39,7 @@
 <div class="row">
 <div class="col-md-8">
 <div class="single-video-left">
-<div class="single-video">
+<div class="single-video" videoId="{{ $video->id }}">
 <iframe width="100%" height="315" src="../../../embed/8LWZSGNjuF0.html?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
 </div>
 <div class="single-video-title box mb-3">
@@ -150,7 +171,8 @@
    <span videoId="{{ $video->id }}" class="videoDislikeCount" count="{{ $video->dislikes->count() }}"> {{ $video->dislikes->count() }} </span> People Dislike This</a>
 
 
-
+<br />  <br />
+<small style="">Published an {{ $video->created_at->diffForHumans() }}</small>
 
 
 
@@ -159,7 +181,28 @@
 <div class="single-video-author box mb-3">
 
 
-<div class="float-right"><button class="btn btn-danger" type="button">Subscribe <strong>1.4M</strong></button> <button class="btn btn btn-outline-danger" type="button"><i class="fas fa-bell"></i></button></div>
+
+
+<div class="float-right">
+
+
+    <div class="star-rating">
+        <span class="fa fa-star whiteStar" data-rating="1"></span>
+        <span class="fa fa-star whiteStar" data-rating="2"></span>
+        <span class="fa fa-star whiteStar" data-rating="3"></span>
+        <span class="fa fa-star whiteStar" data-rating="4"></span>
+        <span class="fa fa-star whiteStar" data-rating="5"></span>
+        <input type="hidden" name="whatever1" class="rating-value" value="1">
+      </div>
+
+<!-- 
+	<button class="btn btn-danger" type="button">Subscribe <strong>1.4M</strong></button> <button class="btn btn btn-outline-danger" type="button"><i class="fas fa-bell"></i></button>
+
+ -->
+
+</div>
+
+
 <img class="img-fluid" src="/img/{{ $video->user->image }}" alt="">
 
 
@@ -173,7 +216,7 @@
  -->
 
 </p>
-<small>Published an {{ $video->created_at->diffForHumans() }}</small>
+<small>Average Rating is 4 out of 5</small>
 
 
 
@@ -189,12 +232,27 @@
 
 	<span style="float:right">
 			
-<i class="fas fa-caret-down" style="color: #d63031;"></i>
+<i class="fas fa-caret-down showOnlineUsersButton" style="color: #d63031;cursor: pointer;"></i>
+<i class="fas fa-caret-up hideOnlineUsersButton" style="color: #d63031;display: none;cursor: pointer;"></i>
+
 
 	</span>
 
 
- <i class="fas fa-eye" style="color: #d63031;"></i> &nbsp Currently Watching: <span style="color: #d63031;font-weight: 600;"> 100 </span> </h5>
+ <i class="fas fa-eye" style="color: #d63031;"></i> &nbsp Currently Watching: <span style="color: #d63031;font-weight: 600;">  {{ sizeof($usersOnVideoOnline) }} </span> </h5>
+
+
+<ul style="margin-top: 1rem;display: none;" class="showOnlineUsers" >
+	
+@foreach($usersOnVideoOnline as $onlineUser)
+	<li>
+			<a href="#"> {{ $onlineUser->name }}  </a>
+	</li>
+@endforeach
+</ul>
+
+
+
 </div>
                 
 
@@ -497,7 +555,6 @@ Education <a title="" data-placement="top" data-toggle="tooltip" href="#" data-o
 
 		                var react = 1;
 
-		                alert(videoId);
 		                // Like Ajax 
 		                $.ajax({
 		                      method: "POST",
@@ -542,6 +599,59 @@ Education <a title="" data-placement="top" data-toggle="tooltip" href="#" data-o
             });
 
 
+$(document).ready(function() {
+
+var $star_rating = $('.star-rating .fa');
+
+var SetRatingStar = function() {
+  return $star_rating.each(function() {
+    if (parseInt($star_rating.siblings('input.rating-value').val()) >= parseInt($(this).data('rating'))) {
+      return $(this).removeClass('whiteStar').addClass('fa-star');
+    } else {
+      return $(this).removeClass('yellowStar').addClass('whiteStar');
+    }
+  });
+};
+
+$star_rating.on('click', function() {
+  $star_rating.siblings('input.rating-value').val($(this).data('rating'));
+
+  var videoId = $(".single-video").attr("videoId");
+
+
+  var ratings = $(this).data('rating');
+
+
+      $.ajax({
+                      method: "POST",
+                      url: "/video/rate",
+                      data: { videoId: videoId, ratings: ratings,  "_token": "{{ csrf_token() }}", }
+                    })
+
+
+
+  return SetRatingStar();
+});
+
+SetRatingStar();
+
+});
+
+
+
+	$(".showOnlineUsersButton").click(function(){
+		$(".showOnlineUsers").fadeIn("slow");
+		$(".hideOnlineUsersButton").show();
+		$(".showOnlineUsersButton").hide();
+
+	});
+
+	$(".hideOnlineUsersButton").click(function(){
+		$(".showOnlineUsers").hide("slow");
+		$(".showOnlineUsersButton").show();
+		$(".hideOnlineUsersButton").hide();
+
+	});
 
 
 				});

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Video;
 use App\Models\Vote;
+use App\Models\Rate;
+use App\Models\User;
+
 use Auth;
 use Illuminate\Http\Request;
 
@@ -89,7 +92,17 @@ class VideoController extends Controller
 
     public function videoPage($slug)
     {
+
+
+
         $video = Video::where('slug', $slug)->first();
+
+        if(Auth::check()){
+            $user = User::find(Auth::id()); 
+            $user->video_id = $video->id; 
+            $user->save();
+        }
+
 
         $video->views += 1;
         $video->save();
@@ -102,8 +115,24 @@ class VideoController extends Controller
             ->where('react', '2')
             ->get();
 
+
+        $usersOnVideo = User::where('video_id', $video->id)
+                                ->get();
+
+
+        $usersOnVideoOnline = array();
+
+        foreach($usersOnVideo as $uOV) {
+            if($uOV->isOnline()){
+                array_push($usersOnVideoOnline, $uOV);
+            }
+        }
+
+
+        
         return view('pages.video')->with([
             'video' => $video,
+            'usersOnVideoOnline' => $usersOnVideoOnline
         ]);
     }
 
@@ -125,6 +154,26 @@ class VideoController extends Controller
 
         $newVote->save();
     }
+
+
+    public function videoRate(Request $request)
+    {
+
+        $videoRate = Rate::where('video_id', $request->videoId)
+            ->where('user_id', Auth::id())
+            ->delete();
+
+
+        $newRate = new Rate;
+        $newRate->video_id = $request->videoId;
+        $newRate->user_id = Auth::id();
+        $newRate->rate = $request->ratings;
+    
+
+        $newRate->save();
+    }
+
+
 
     public function videoUploadPage()
     {
