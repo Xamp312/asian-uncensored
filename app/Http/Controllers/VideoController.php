@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Image;
 use App\Models\Category;
 use App\Models\Video;
 use App\Models\Vote;
@@ -31,28 +32,29 @@ class VideoController extends Controller
         $video->category_id = $category->id;
 
         $video->save();
+        $slug = $video->slug;
 
-        // if($request->hasFile('image')){
+        if($request->hasFile('image')){
 
-        //     $image = $request->file('image');
-        //     $filename = $video->slug. '.' . $image->getClientOriginalExtension();
-        //     $image = Image::make($image);
+            $image = $request->file('image');
+            $filename = $slug. '.' . $image->getClientOriginalExtension();
+            $image = Image::make($image);
 
-        //     $image->save('uploads/thumbnails' . $filename);
+            $image->save('uploads/thumbnails/' . $filename);
 
-        //     $video->image_name = $filename;
+            $video->image_name = $filename;
 
-        // }
+        }
 
-        // if($request->hasFile('video')){
+        if($request->hasFile('video')){
+            $video1 = $request->file('video');
+            $filename = $slug. '.' . $video1->getClientOriginalExtension();
 
-        //     $video = Request::file('video');
-        //     $filename = $video->slug. '.' . $video->getClientOriginalExtension();
-        //     $path = public_path().'/uploads/videos';
-        //     $video->save('uploads/thumbnails' . $filename);
-        //   $video->video_name = $filename;
+            $path = public_path('/uploads/videos');
+            $video1->move($path, $filename);
+            $video->video_name = $filename;
 
-        // }
+        }
 
 //             php.ini files contains some limits that might affect this. Try changing these to high enough values:
 
