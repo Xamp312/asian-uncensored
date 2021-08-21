@@ -16,6 +16,7 @@ class VideoController extends Controller
         $video = new Video();
         $video->title = $request->title;
         $video->description = $request->description;
+        
         if($request->is_private){
             $video->is_private = 1;
         }
@@ -55,8 +56,9 @@ class VideoController extends Controller
 // upload_max_filesize = 10M
 // post_max_size = 10M
 // memory_limit = 32M
+$video->video_name = $filename;
+
         }
-        $video->video_name = $filename;
         $video->save();
 
 
