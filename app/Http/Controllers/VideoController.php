@@ -70,14 +70,6 @@ class VideoController extends Controller
 
     }
 
-    public function mostViewed()
-    {
-        $videos = Video::orderBy('views', 'desc')->get();
-
-        return view('mostViewed', compact('videos'));
-
-    }
-
 
   
 
