@@ -4,18 +4,43 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Auth;
 
 class AdminController extends Controller
 {
     public function makeAdmin($slug){
 
-        $user = User::find($slug);
+        $user = User::where('slug',$slug)->first();
 
-        $user->is_admin == 1;
+        $user->is_admin = 1;
         $user->save();
 
-        return redirect()->back()->with('success', 'Admin made Successfully');
+        return redirect()->back()->with('success', 'Admin Made Successfully');
     }
+
+    public function removeAdmin($slug){
+
+
+        if($slug == Auth::user()->slug){
+            return redirect()->back()->with('warning', 'Cannot Remove yourself as Admin');
+        }
+
+        $user = User::where('slug',$slug)->first();
+
+        $user->is_admin = 0;
+        $user->save();
+
+        return redirect()->back()->with('warning', 'Admin Removed Successfully');
+    }
+
+    public function deleteUser($slug){
+
+        $user = User::where('slug',$slug)->first()->delete();
+
+        return redirect()->back()->with('warning', 'User Deleted Successfully');
+    }
+
+
 
     public function deleteVideo($slug){
 

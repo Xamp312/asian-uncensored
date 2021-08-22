@@ -16,9 +16,14 @@
 
  <div class="single-channel-page" id="content-wrapper">
 <div class="single-channel-image">
+@if($user->cover)
+    <img class="img-fluid" alt="" src="/uploads/users/{{$user->cover}}">
+
+    @else
 <img class="img-fluid" alt="" src="img/channel-banner.png">
+@endif
 <div class="channel-profile">
-<img class="channel-profile-img" alt="" src="img/s2.png">
+<img class="channel-profile-img" alt="" src="/uploads/users/{{$user->image}}">
 <div class="social hidden-xs">
 Social &nbsp;
 <a class="fb" href="#">Facebook</a>

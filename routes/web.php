@@ -51,6 +51,10 @@ Route::get('/category/add', 'App\Http\Controllers\AdminController@newCat')->name
 Route::get('/users/list', 'App\Http\Controllers\AdminController@users')->name('users');
 
 Route::get('user/delete/{slug}', 'App\Http\Controllers\AdminController@deleteUser')->name('deleteUser');
+Route::get('user/makeAdmin/{slug}', 'App\Http\Controllers\AdminController@makeAdmin')->name('makeAdmin');
+Route::get('user/removeAdmin/{slug}', 'App\Http\Controllers\AdminController@removeAdmin')->name('removeAdmin');
+
+
 //Admin Routes End
 
 Route::get('/settings', function () {

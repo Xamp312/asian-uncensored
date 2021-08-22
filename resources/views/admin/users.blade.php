@@ -44,10 +44,15 @@
                 
                                     <td class="text-right">
 
+                                    @if($user->is_admin == 0)
                                     <a class="btn btn-sm btn-success"
                                         href="{{route('makeAdmin', $user->slug)}}">Make Admin</a>
+                                        @else
+                                        <a class="btn btn-sm btn-warning"
+                                        href="{{route('removeAdmin', $user->slug)}}">Remove Admin</a>
+                                        @endif
                                         <a class="btn btn-sm btn-danger"
-                                        href="{{route('deleteUser', $user->id)}}">Delete</a>
+                                        href="{{route('deleteUser', $user->slug)}}">Delete</a>
                              
                                     </td>
                                 </tr>
