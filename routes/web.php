@@ -31,14 +31,16 @@ Route::get('/profile/{slug}','App\Http\Controllers\VideoController@profile' )->n
 //Authentication Routes
 Route::get('/login', function () { return view('pages.login');});
 Route::get('/register', function () {return view('pages.register');});
+Route::get('admin/logout', 'App\Http\Controllers\Auth\LoginController@logout')->name('logout');
+
 //Authentication Routes End
 
 Auth::routes();
 
-Route::get('admin/logout', 'App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 Route::group(['middleware' => ['auth']], function () { 
 
-Route::get('/edit/video/{id}', 'App\Http\Controllers\VideoController@editVideo')->name('editVideo');
+Route::get('/edit/video/{id}', 'App\Http\Controllers\VideoController@editVideo')->name('editVideoPage');
+Route::post('/update/user/', 'App\Http\Controllers\HomeController@updateUser')->name('updateUser');
 Route::get('/settings', function () { return view('pages.settings'); });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

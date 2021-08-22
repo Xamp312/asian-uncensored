@@ -53,4 +53,22 @@ class HomeController extends Controller
         return view('pages.home', compact('users', 'videos', 'category'));
                  }
 
+
+        public function updateUser(Request $reuest){
+
+            $user = User::find($request->id);
+
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->about = $request->about;
+            $user->facebook = $request->facebook;
+            $user->twitter = $request->twitter;
+            $user->instagram = $request->instagram;
+
+            $user->save();
+
+            return redirect()->back()->with('success', 'Profile Updated Successfully');
+
+
+        }
 }

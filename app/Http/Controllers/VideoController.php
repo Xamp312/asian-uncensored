@@ -203,8 +203,11 @@ class VideoController extends Controller
     {
 
         $video = Video::find($id);
+        $category = Category::all();
+        $cat1 = Category::find($video->category_id);
 
-        return view('admin.editVideo', compact('video'));
+
+        return view('pages.editVideo', compact('video','category', 'cat1'));
 
       
     }
