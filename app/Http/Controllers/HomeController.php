@@ -50,7 +50,11 @@ class HomeController extends Controller
         $videos = Video::orderby('created_at', 'desc')->paginate(16);
         $category = Category::all();
 
-        return view('pages.home', compact('users', 'videos', 'category'));
+        return view('pages.home')->with([
+                        'users' => $users, 
+                        'videos' => $videos, 
+                        'category' => $category
+                    ]);
                  }
 
 
