@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Category;
+
 use Auth;
 
 class AdminController extends Controller
@@ -55,6 +57,26 @@ class AdminController extends Controller
         return view('admin.newCat');
     }
 
+    public function createCat(Request $request){
+
+        $cat = new Category();
+
+        $cat->name = $request->name;
+        $cat->save();
+
+        return redirect()->route('home')->with('success', 'Category Added Successfully');
+    }
+
+    public function updateCat(Request $request){
+
+        $cat = Category::find($reques->id);
+
+        $cat->name = $request->name;
+
+        $cat->save();
+
+        return redirect()->route('home')->with('success', 'Category Updated Successfully');
+    }
     public function users(){
 
         $users = User::orderBy('created_at', 'desc')->get();
