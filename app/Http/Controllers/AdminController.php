@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Category;
 use App\Models\Video;
+use File;
+use Image;
 
 use Auth;
 
@@ -51,8 +53,13 @@ class AdminController extends Controller
 
         $cat = Category::find($video->category_id);
         $cat->count -+ 1;
-        $cat-save();
-//delete video file here
+        $cat->save();
+        if(File::exists('uploads/videos' . $video->video_name)) {
+            File::delete('uploads/videos' . $video->video_name);
+        }
+        if(File::exists('uploads/thumbnails' . $video->image_name)) {
+            File::delete('uploads/thumbnails' . $video->image_name);
+        }
         $video->delete();
 
         return redirect()->back()->with('warning', 'Video Deleted Successfully');
@@ -127,6 +134,23 @@ class AdminController extends Controller
             $cat->count -= 1;
             $cat->save();
             $video->category_id = $request->category_id;
+        }
+
+        
+
+        if($request->hasFile('image')){
+
+                File::delete(public_path('/uploads/thumbnails/' . $video->image_name));
+            
+
+            $image = $request->file('image');
+            $filename = $video->slug. '.' . $image->getClientOriginalExtension();
+            $image = Image::make($image);
+
+            $image->save('uploads/thumbnails/' . $filename);
+
+            $video->image_name = $filename;
+
         }
 
         $video->save();
