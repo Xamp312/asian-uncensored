@@ -4,40 +4,40 @@
 
 <body class="">
 
-    <!-- Navbar -->
+  <!-- Navbar -->
 
-    <!-- End Navbar -->
-    <!-- Header -->
-    <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
-      style="min-height: 600px; background-image: url(/images/img/header.jpg); background-size: cover; background-position: center top;">
+  <!-- End Navbar -->
+  <!-- Header -->
+  <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center"
+    style="min-height: 600px; background-image: url(/images/img/header.jpg); background-size: cover; background-position: center top;">
 
-      <!-- Mask -->
-      <span class="mask bg-gradient-default opacity-8"></span>
+    <!-- Mask -->
+    <span class="mask bg-gradient-default opacity-8"></span>
 
-      <!-- Header container -->
-      <div class="container-fluid d-flex align-items-center">
+    <!-- Header container -->
+    <div class="container-fluid d-flex align-items-center">
 
-        <div class="row">
+      <div class="row">
 
-          <div class="col-lg-12 col-md-12">
+        <div class="col-lg-12 col-md-12">
 
-            <h1 class="display-2 text-white">Edit {{$product->name}}</h1>    
-            <div class="col-4  pl-0">
-              <a href="{{route('home')}}"  class="btn btn-sm btn-primary">
+          <h1 class="display-2 text-white">Edit {{$cat->name}}</h1>
+          <div class="col-4  pl-0">
+            <a href="{{route('home')}}" class="btn btn-sm btn-primary">
               <i class="fa fa-arrow-left"></i>
-                
-                Back</a>
-            </div>
-            <!-- <p class="text-white mt-0 mb-5">Please Copy the "Source" of the Embed Code given by Facebook for a Post</p> -->
-            <!-- <a href="#!" class="btn btn-info">Edit profile</a> -->
+
+              Back</a>
           </div>
+          <!-- <p class="text-white mt-0 mb-5">Please Copy the "Source" of the Embed Code given by Facebook for a Post</p> -->
+          <!-- <a href="#!" class="btn btn-info">Edit profile</a> -->
         </div>
       </div>
     </div>
-    <!-- Page content -->
-    <div class="container-fluid mt--7 mb-5">
-      <div class="row">
-        <!-- <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0 d-none d-md-block d-lg-block">
+  </div>
+  <!-- Page content -->
+  <div class="container-fluid mt--7 mb-5">
+    <div class="row">
+      <!-- <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0 d-none d-md-block d-lg-block">
           <div class="card card-profile shadow">
             <div class="row justify-content-center">
               <div class="col-lg-3 order-lg-2">
@@ -92,79 +92,43 @@
             </div>
           </div>
         </div> -->
-        <div class="col-xl-12 order-xl-1">
-          <div class="card bg-secondary shadow">
-            <div class="card-header bg-legendary  border-0">
+      <div class="col-xl-12 order-xl-1">
+        <div class="card bg-secondary shadow">
+          <div class="card-header bg-legendary  border-0">
 
-              <div class="row align-items-center">
-                <div class="col-8">
-                  <h3 class="mb-0 text-white">Edit Product</h3>
-                </div>
-                <div class="col-4 text-right d-none d-md-block d-lg-block">
-                  <a href="https://www.amazon.com/sp?_encoding=UTF8&asin=&isAmazonFulfilled=1&isCBA=&marketplaceID=ATVPDKIKX0DER&orderID=&protocol=current&seller=A3RGZ1Z65YEZYY&sshmPath=" target="_blank" class="btn btn-sm btn-primary">Goto Amazon Store</a>
-                </div>
+            <div class="row align-items-center">
+              <div class="col-8">
+                <h3 class="mb-0 text-white">Rename Category</h3>
+              </div>
+              <div class="col-4 text-right d-none d-md-block d-lg-block">
+                <a href="https://www.amazon.com/sp?_encoding=UTF8&asin=&isAmazonFulfilled=1&isCBA=&marketplaceID=ATVPDKIKX0DER&orderID=&protocol=current&seller=A3RGZ1Z65YEZYY&sshmPath="
+                  target="_blank" class="btn btn-sm btn-primary">Goto Amazon Store</a>
               </div>
             </div>
-            <div class="card-body">
-              <form method="post" action="{{route('updateProduct')}}" enctype="multipart/form-data">
-                @csrf
-                <input type="hidden" value="{{$product->id}}" name="id">
-                <h6 class="heading-small text-muted mb-4">Flixall Product</h6>
-                <div class="pl-lg-4">
+          </div>
+          <div class="card-body">
+            <form method="post" action="{{route('updateCat')}}" enctype="multipart/form-data">
+              @csrf
+              <input type="hidden" value="{{$cat->id}}" name="id">
+              <h6 class="heading-small text-muted mb-4">Category</h6>
+              <div class="pl-lg-4">
                 @include('layouts.alerts')
 
-                  <div class="row ">
-                    <div class="col-lg-12">
-                      <div class="form-group">
-                        <!-- <label class="form-control-label" for="input-username">Username</label> -->
-                        <input type="text" id="input-username" name="name" class="form-control form-control-alternative"
-                          placeholder="Product Name" value="{{$product->name}}">
-                      </div>
+                <div class="row ">
+                  <div class="col-lg-12">
+                    <div class="form-group">
+                      <!-- <label class="form-control-label" for="input-username">Username</label> -->
+                      <input type="text" id="input-username" name="name" class="form-control form-control-alternative"
+                        placeholder="Category Name" value="{{$cat->name}}">
                     </div>
-                    <div class="col-lg-12">
-                      <div class="form-group">
-                        <!-- <label class="form-control-label" for="input-username">Username</label> -->
-                        <textarea type="text" id="input-username" name="description" class="form-control form-control-alternative"
-                             >{{$product->description}} </textarea>
-                      </div>
-                    </div>
-                    <div class="col-lg-12">
-                      <div class="form-group">
-                        <!-- <label class="form-control-label" for="input-username">Username</label> -->
-                        <input type="text" id="input-username" name="price" class="form-control form-control-alternative"
-                          placeholder="Price"  value="{{$product->price}}" >
-                      </div>
-                    </div>
-                    <div class="col-lg-12">
-                      <div class="form-group">
-                        <!-- <label class="form-control-label" for="input-username">Username</label> -->
-                        <input type="text" id="input-username" name="cut_price" class="form-control form-control-alternative "
-                          placeholder="Cut Price" value="{{$product->cut_price}}" >
-                      </div>
-                    </div>
-                    <div class="col-lg-12">
-                      <div class="form-group">
-                        <!-- <label class="form-control-label" for="input-username">Username</label> -->
-                        <input type="text" id="input-username" name="quantity" class="form-control form-control-alternative"
-                          placeholder="Quantity"  value="{{$product->quantity}}" >
-                      </div>
-                    </div>
-                    <div class="col-lg-12">
-                      <div class="form-group">
-                        <!-- <label class="form-control-label" for="input-username">Username</label> -->
-                        <input type="text" id="input-username" name="link" class="form-control form-control-alternative"
-                          placeholder="link"  value="{{$product->link}}" >
-                      </div>
-                    </div>
+                  </div>
 
-                    <div class="col-lg-12">
-                      <div class="form-group">
-                    <input class=" form-control form-control-alternative btn btn-primary "   type="file" name="image[]" multiple>
-</div>
-</div>
-                    
+               
 
-                    <div class="col-lg-12 text-center">
+     
+
+
+                  <div class="col-lg-12 text-center">
                     <button type="submit" class="btn btn-primary text-center">Update</button>
                   </div>
 
@@ -174,33 +138,21 @@
 
 
 
-                    <!-- <div class="col-lg-6">
+                  <!-- <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-email">Email address</label>
                         <input type="email" id="input-email" class="form-control form-control-alternative"
                           placeholder="jesse@example.com">
                       </div>
                     </div> -->
-                  </div>
+                </div>
 
 
-<div class="row mt-5">
-
-    @foreach($photos as $photo)
-
-    <div class="col-2 pb-5">
-<img src="/uploads/{{$photo->image}}" style="width:100%" alt="">
-<br>
-<div class="col-lg-12 text-center pt-3">
-                    <a href="{{route('deletePhoto', $photo->id)}}" class="btn btn-danger text-center">Delete</a>
-                  </div>
-    </div>
-    @endforeach
-</div>
+              
 
 
-                  
-                  <!-- <div class="row">
+
+                <!-- <div class="row">
                     <div class="col-lg-6">
                       <div class="form-group">
                         <label class="form-control-label" for="input-first-name">First name</label>
@@ -216,11 +168,11 @@
                       </div>
                     </div>
                   </div> -->
-                </div>
-                <!-- Address -->
-                <!-- <h6 class="heading-small text-muted mb-4">Contact information</h6> -->
-                <div class="pl-lg-4">
-                  <!-- <div class="row">
+              </div>
+              <!-- Address -->
+              <!-- <h6 class="heading-small text-muted mb-4">Contact information</h6> -->
+              <div class="pl-lg-4">
+                <!-- <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
                         <label class="form-control-label" for="input-address">Address</label>
@@ -253,24 +205,24 @@
                       </div>
                     </div>
                   </div> -->
-                </div>
-                <!-- <hr class="my-4"> -->
-                <!-- Description -->
-                <!-- <h6 class="heading-small text-muted mb-4">About me</h6> -->
-                <!-- <div class="pl-lg-4">
+              </div>
+              <!-- <hr class="my-4"> -->
+              <!-- Description -->
+              <!-- <h6 class="heading-small text-muted mb-4">About me</h6> -->
+              <!-- <div class="pl-lg-4">
                   <div class="form-group">
                     <label>About Me</label>
                     <textarea rows="4" class="form-control form-control-alternative"
                       placeholder="A few words about you ...">A beautiful Dashboard for Bootstrap 4. It is Free and Open Source.</textarea>
                   </div>
                 </div> -->
-              </form>
-            </div>
+            </form>
           </div>
         </div>
       </div>
-      <!-- Footer -->
-    
     </div>
+    <!-- Footer -->
+
   </div>
-@endsection
+  </div>
+  @endsection

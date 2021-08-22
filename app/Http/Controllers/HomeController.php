@@ -27,11 +27,11 @@ class HomeController extends Controller
         if ($user->is_admin == 1) {
 
             $usersCount = User::all()->count();
-            $usersCount -= 1;
             $videosCount = Video::all()->count();
-            $catsCount = Category::all()->count();
+            $categories = Category::orderBy('count', 'desc')->get();
+            $catsCount = $categories->count();
 
-            return view('admin.home', compact('usersCount', 'videosCount', 'catsCount'));
+            return view('admin.home', compact('usersCount', 'videosCount', 'catsCount', 'categories'));
 
         } else {
 

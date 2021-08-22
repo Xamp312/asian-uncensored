@@ -47,6 +47,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //Admin Routes
 Route::get('/category/new', 'App\Http\Controllers\AdminController@newCat')->name('newCat');
+Route::get('/category/edit/{id}', 'App\Http\Controllers\AdminController@editCat')->name('editCat');
 Route::post('/category/create', 'App\Http\Controllers\AdminController@createCat')->name('createCat');
 Route::post('/category/update', 'App\Http\Controllers\AdminController@updateCat')->name('updateCat');
 

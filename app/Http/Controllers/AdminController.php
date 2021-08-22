@@ -57,6 +57,12 @@ class AdminController extends Controller
         return view('admin.newCat');
     }
 
+    public function editCat($id){
+
+        $cat = Category::find($id);
+
+        return view('admin.editCat', compact('cat'));
+    }
     public function createCat(Request $request){
 
         $cat = new Category();
@@ -69,7 +75,7 @@ class AdminController extends Controller
 
     public function updateCat(Request $request){
 
-        $cat = Category::find($reques->id);
+        $cat = Category::find($request->id);
 
         $cat->name = $request->name;
 
