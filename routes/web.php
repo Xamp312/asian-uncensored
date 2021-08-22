@@ -40,6 +40,15 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
 
+
+//Admin Routes
+Route::get('/category/add', 'App\Http\Controllers\AdminController@newCat')->name('newCat');
+
+Route::get('/users/list', 'App\Http\Controllers\AdminController@users')->name('users');
+
+Route::get('user/delete/{slug}', 'App\Http\Controllers\AdminController@deleteUser')->name('deleteUser');
+//Admin Routes End
+
 Route::get('/settings', function () {
     return view('pages.settings');
 });
