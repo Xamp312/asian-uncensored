@@ -26,9 +26,9 @@
 <img class="channel-profile-img" alt="" src="uploads/users/{{$user->image}}">
 <div class="social hidden-xs">
 Social &nbsp;
-<a class="fb" href="#">Facebook</a>
-<a class="tw" href="#">Twitter</a>
-<a class="gp" href="#">Google</a>
+<a class="fb" href="{{$user->facebook}}">Facebook</a>
+<a class="tw" href="{{$user->twitter}}">Twitter</a>
+<a class="ig" href="{{$user->instagram}}">Instagram</a>
 </div>
 </div>
 </div>
