@@ -57,7 +57,7 @@
               <i class="ni ni-satisfied  "></i> Users
             </a>
             <a class="dropdown-item  " href="{{route('videos')}}">
-              <i class="ni ni-satisfied  "></i> Videos
+              <i class="ni ni-settings-gear-65"></i> Videos
             </a>
             <a class="dropdown-item  " href="{{route('newCat')}}">
               <i class="ni ni-box-2 "></i> New Category
@@ -116,7 +116,7 @@
           </li>
           <li class="nav-item">
           <a class="nav-link " href="{{route('videos')}}">
-              <i class="ni ni-satisfied text-blue "></i> Videos
+              <i class="ni ni-settings-gear-65 text-blue "></i> Videos
             </a>
           </li>
           
@@ -196,7 +196,7 @@
       </div>
       <div class="col-xl-12">
         <div class="copyright text-center  text-muted">
-          &copy; {{now()->year }} <a href="#" class="font-weight-bold ml-1" target="_blank">Leverics LLC</a>
+          &copy; {{now()->year }} <br> <a href="#" class="font-weight-bold ml-1" target="_blank" style="color:red;">Asian Uncensored</a>
         </div>
       </div>
     </div>
@@ -225,7 +225,7 @@
               aria-expanded="false">
               <div class="media align-items-center">
                 <span class="avatar avatar-sm rounded-circle">
-                  <img alt="Image placeholder" src="/img/brand/favicon.png">
+                  <img alt="Image placeholder" src="/uploads/users/{{Auth::user()->image}}">
                 </span>
                 <div class="media-body ml-2 d-none d-lg-block">
                   <span class="mb-0 text-sm  font-weight-bold">{{Auth::user()->name}}</span>
@@ -259,7 +259,7 @@
               <i class="ni ni-satisfied  "></i> Users
             </a>
             <a class="dropdown-item  " href="{{route('videos')}}">
-              <i class="ni ni-satisfied  "></i> Videos
+              <i class="ni ni-settings-gear-65  "></i> Videos
             </a>
             <a class="dropdown-item  " href="{{route('newCat')}}">
               <i class="ni ni-box-2 "></i> New Category

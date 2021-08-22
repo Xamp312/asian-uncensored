@@ -20,10 +20,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>
-        Admin - Dashboard | Flixall
+        Admin - Dashboard | Asian Uncensored
     </title>
     <!-- Favicon -->
-    <link href="/img/brand/favicon.png" rel="icon" type="image/png">
+    <link href="/img/favicon.png" rel="icon" type="image/png">
     <!-- Fonts -->
     <link href="../../css.css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <!-- Icons -->
