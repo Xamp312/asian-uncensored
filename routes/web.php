@@ -35,6 +35,7 @@ Route::get('/register', function () {return view('pages.register');});
 
 Auth::routes();
 
+Route::get('admin/logout', 'App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 Route::group(['middleware' => ['auth']], function () { 
 
 Route::get('/edit/video/{id}', 'App\Http\Controllers\VideoController@editVideo')->name('editVideo');

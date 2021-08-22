@@ -65,7 +65,7 @@
         
 
             <div class="dropdown-divider"></div>
-            <a href="{{('logout')}}" class="dropdown-item">
+            <a href="{{route('logout')}}" class="dropdown-item">
               <i class="ni ni-button-power"></i>
               <span>Logout</span>
             </a>
@@ -268,7 +268,7 @@
             
 
             <div class="dropdown-divider"></div>
-            <a href="{{('logout')}}" class="dropdown-item">
+            <a href="{{route('logout')}}" class="dropdown-item">
               <i class="ni ni-button-power"></i>
               <span>Logout</span>
             </a>
