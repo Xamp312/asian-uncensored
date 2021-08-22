@@ -31,7 +31,7 @@ Upload Video
 </li>
 
 
-<li class="nav-item dropdown no-arrow mx-1">
+<!-- <li class="nav-item dropdown no-arrow mx-1">
 <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 <i class="fas fa-bell fa-fw"></i>
 <span class="badge badge-danger">9+</span>
@@ -54,13 +54,13 @@ Upload Video
 <div class="dropdown-divider"></div>
 <a class="dropdown-item" href="#"><i class="fas fa-fw fa-star "></i> &nbsp; Something else here</a>
 </div>
-</li>
+</li> -->
 
 
 
 <li class="nav-item dropdown no-arrow osahan-right-navbar-user">
 <a class="nav-link dropdown-toggle user-dropdown-link" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-<img alt="Avatar" src="/uploads/users/{{Auth::user()->image}}">
+<img alt="Avatar" src="/uploads/users/{{Auth::user()->image}}"> &nbsp 
 {{ Auth::user()->name }}
 </a>
 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">

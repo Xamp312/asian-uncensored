@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\VideoController;
+use App\Http\Controllers\CommunityController;
+
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 /*
@@ -17,6 +19,8 @@ use App\Models\User;
 Route::get('/', [HomeController::class, 'landingPage'])->name('landingPage');
 
 Route::get('/videos/latest', [VideoController::class, 'latestVideos'])->name('latestVideos');
+Route::get('/videos/mostviews', [VideoController::class, 'mostViewsVideos'])->name('mostViewsVideos');
+Route::get('/videos/mostlikes', [VideoController::class, 'mostLikesVideos'])->name('mostLikesVideos');
 
 Route::get('/video/upload', [VideoController::class, 'videoUploadPage'])->name('videoUploadPage');
 Route::get('/video/{slug}', [VideoController::class, 'videoPage'])->name('videoPage');
@@ -53,7 +57,9 @@ Route::get('/settings', function () {
     return view('pages.settings');
 });
 
-Route::get('/community', function () {
-    return view('pages.community');
-});
+
+
+
+Route::get('/community', [CommunityController::class, 'communityPage'])->name('communityPage');
+
 

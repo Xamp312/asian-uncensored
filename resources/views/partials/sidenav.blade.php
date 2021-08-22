@@ -13,9 +13,9 @@
 <span>Explore</span>
 </a>
 <div class="dropdown-menu">
-<a class="dropdown-item" href="forgot-password.html">Top Rated</a>
-<a class="dropdown-item" href="login.html">Most Viewed</a>
-<a class="dropdown-item" href="register.html">Most Likes</a>
+<a class="dropdown-item" href="#">Top Rated</a>
+<a class="dropdown-item" href="{{ route('mostViewsVideos') }}">Most Viewed</a>
+<a class="dropdown-item" href="#">Most Likes</a>
 <a class="dropdown-item" href="{{ route('latestVideos') }}">Latest Videos</a>
 
 
@@ -45,16 +45,19 @@
 </li> -->
 
 <li class="nav-item channel-sidebar-list">
-<h6><i class="fas fa-fw fa-list-alt"></i> &nbsp
+<h6><!-- <i class="fas fa-fw fa-list-alt"></i> &nbsp -->
  Categories</h6>
 <ul>
 
 
+@foreach($category as $cat)
 <li style="margin-left:2rem;">
-<a href="subscriptions.html" style="color:#c0392b">
-Your Life
+<a href="/videos/category/{{ $cat->name }}" style="color:#c0392b">
+{{ $cat->name }}
 </a>
 </li>
+@endforeach
+
 
 </ul>
 </li>

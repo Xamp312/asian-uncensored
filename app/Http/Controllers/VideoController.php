@@ -78,10 +78,24 @@ class VideoController extends Controller
 
     }
 
+
+  
+
+
+    public function mostViewsVideos()
+    {
+
+        $videos = Video::orderby('views', 'desc')->paginate(16);
+        $category = Category::all();
+
+        return view('pages.mostViewsVideos', compact('videos', 'category'));
+    }
+
+
     public function latestVideos()
     {
 
-        $videos = Video::orderby('created_at', 'desc')->get();
+        $videos = Video::orderby('created_at', 'desc')->paginate(16);
         $category = Category::all();
 
         return view('pages.latestVideos', compact('videos', 'category'));
