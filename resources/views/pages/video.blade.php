@@ -217,7 +217,7 @@
  -->
 
 </p>
-<small>Average Rating is 4 out of 5</small>
+<small>Average Rating: {{$video->rating}} out of 5</small>
 
 
 

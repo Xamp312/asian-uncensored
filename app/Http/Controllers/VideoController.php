@@ -95,7 +95,7 @@ class VideoController extends Controller
 
     public function topRated()
     {
-        //
+        //round($value, 2);
     }
 
     public function videoPage($slug)

@@ -26,6 +26,8 @@ class CreateVideosTable extends Migration
             $table->text('description')->nullable();
             $table->integer('is_private')->default(0);
             $table->integer('views')->default(0);
+            $table->integer('likes')->default(0);
+            $table->integer('rating')->default(0);
             $table->timestamps();
         });
     }
