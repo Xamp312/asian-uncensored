@@ -41,14 +41,19 @@ Route::get('/settings', function () { return view('pages.settings'); });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //Admin Routes
-Route::get('/category/new', 'App\Http\Controllers\AdminController@newCat')->name('newCat');
 Route::get('/category/edit/{id}', 'App\Http\Controllers\AdminController@editCat')->name('editCat');
-Route::post('/category/create', 'App\Http\Controllers\AdminController@createCat')->name('createCat');
 Route::post('/category/update', 'App\Http\Controllers\AdminController@updateCat')->name('updateCat');
+Route::post('/category/create', 'App\Http\Controllers\AdminController@createCat')->name('createCat');
+Route::get('/video/edit/{id}', 'App\Http\Controllers\AdminController@editVideo')->name('editVideo');
+Route::get('/category/new', 'App\Http\Controllers\AdminController@newCat')->name('newCat');
 Route::get('/users/list', 'App\Http\Controllers\AdminController@users')->name('users');
+Route::get('/videos/list', 'App\Http\Controllers\AdminController@videos')->name('videos');
+Route::post('/video/update', 'App\Http\Controllers\AdminController@updateVideo')->name('updateVideo');
 Route::get('user/delete/{slug}', 'App\Http\Controllers\AdminController@deleteUser')->name('deleteUser');
+Route::get('video/delete/{id}', 'App\Http\Controllers\AdminController@deleteVideo')->name('deleteVideo');
 Route::get('user/makeAdmin/{slug}', 'App\Http\Controllers\AdminController@makeAdmin')->name('makeAdmin');
 Route::get('user/removeAdmin/{slug}', 'App\Http\Controllers\AdminController@removeAdmin')->name('removeAdmin');
+
 //Admin Routes End
 
 });

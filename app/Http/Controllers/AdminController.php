@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Category;
+use App\Models\Video;
 
 use Auth;
 
@@ -44,9 +45,13 @@ class AdminController extends Controller
 
 
 
-    public function deleteVideo($slug){
+    public function deleteVideo($id){
 
-        $video = Video::find($slug);
+        $video = Video::find($id);
+
+        $cat = Category::find($video->category_id);
+        $cat->count -+ 1;
+        $cat-save();
 //delete video file here
         $video->delete();
 
@@ -87,6 +92,47 @@ class AdminController extends Controller
 
         $users = User::orderBy('created_at', 'desc')->get();
         return view('admin.users',compact('users'));
+    }
+
+    public function videos(){
+
+        $videos = Video::orderBy('created_at', 'desc')->get();
+        return view('admin.videos',compact('videos'));
+    }
+
+    public function editVideo($id){
+
+        $video = Video::find($id);
+        $cat1 = Category::find($video->category_id);
+
+        return view('admin.editVideo', compact('video', 'cat1'));
+    }
+    
+    public function updateVideo(Request $request){
+
+        $video = video::find($request->id);
+
+        $video->title = $request->video_title;
+        $video->description = $request->description;
+        $video->is_private = $request->is_private;
+
+        if($request->category_id == $video->category_id){
+
+        }
+        else{
+            $cat = Category::find($request->category_id);
+            $cat->count += 1;
+            $cat->save();
+            $cat = Category::find($video->category_id);
+            $cat->count -= 1;
+            $cat->save();
+            $video->category_id = $request->category_id;
+        }
+
+        $video->save();
+
+        return redirect()->back()->with('success', 'Video Updated Successfully');
+
     }
 
 

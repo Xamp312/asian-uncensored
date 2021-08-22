@@ -100,10 +100,10 @@
               <div class="col-8">
                 <h3 class="mb-0 text-white">Rename Category</h3>
               </div>
-              <div class="col-4 text-right d-none d-md-block d-lg-block">
+              <!-- <div class="col-4 text-right d-none d-md-block d-lg-block">
                 <a href="https://www.amazon.com/sp?_encoding=UTF8&asin=&isAmazonFulfilled=1&isCBA=&marketplaceID=ATVPDKIKX0DER&orderID=&protocol=current&seller=A3RGZ1Z65YEZYY&sshmPath="
                   target="_blank" class="btn btn-sm btn-primary">Goto Amazon Store</a>
-              </div>
+              </div> -->
             </div>
           </div>
           <div class="card-body">

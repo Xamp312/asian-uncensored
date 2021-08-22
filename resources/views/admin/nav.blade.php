@@ -56,6 +56,9 @@
             <a class="dropdown-item  " href="{{route('users')}}">
               <i class="ni ni-satisfied  "></i> Users
             </a>
+            <a class="dropdown-item  " href="{{route('videos')}}">
+              <i class="ni ni-satisfied  "></i> Videos
+            </a>
             <a class="dropdown-item  " href="{{route('newCat')}}">
               <i class="ni ni-box-2 "></i> New Category
             </a>
@@ -109,6 +112,11 @@
           <li class="nav-item">
           <a class="nav-link " href="{{route('users')}}">
               <i class="ni ni-satisfied text-blue "></i> Users
+            </a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link " href="{{route('videos')}}">
+              <i class="ni ni-satisfied text-blue "></i> Videos
             </a>
           </li>
           
@@ -249,6 +257,9 @@
             </a>
             <a class="dropdown-item  " href="{{route('users')}}">
               <i class="ni ni-satisfied  "></i> Users
+            </a>
+            <a class="dropdown-item  " href="{{route('videos')}}">
+              <i class="ni ni-satisfied  "></i> Videos
             </a>
             <a class="dropdown-item  " href="{{route('newCat')}}">
               <i class="ni ni-box-2 "></i> New Category
