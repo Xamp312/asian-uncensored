@@ -34,7 +34,6 @@ Route::get('/register', function () {return view('pages.register');});
 Route::get('admin/logout', 'App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 
 //Authentication Routes End
-
 Auth::routes();
 
 Route::group(['middleware' => ['auth']], function () { 
