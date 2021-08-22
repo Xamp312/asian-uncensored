@@ -199,6 +199,16 @@ class VideoController extends Controller
         ]);
     }
 
+    public function editVideo($id)
+    {
+
+        $video = Video::find($id);
+
+        return view('admin.editVideo', compact('video'));
+
+      
+    }
+
     public function profile($slug){
 
         $user = User::where('slug', $slug)->first();
@@ -214,6 +224,8 @@ class VideoController extends Controller
          
     }
     }
+
+    
 
 
 }

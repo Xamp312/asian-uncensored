@@ -37,6 +37,7 @@ Auth::routes();
 
 Route::group(['middleware' => ['auth']], function () { 
 
+Route::get('/edit/video/{id}', 'App\Http\Controllers\VideoController@editVideo')->name('editVideo');
 Route::get('/settings', function () { return view('pages.settings'); });
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -53,7 +54,6 @@ Route::get('user/delete/{slug}', 'App\Http\Controllers\AdminController@deleteUse
 Route::get('video/delete/{id}', 'App\Http\Controllers\AdminController@deleteVideo')->name('deleteVideo');
 Route::get('user/makeAdmin/{slug}', 'App\Http\Controllers\AdminController@makeAdmin')->name('makeAdmin');
 Route::get('user/removeAdmin/{slug}', 'App\Http\Controllers\AdminController@removeAdmin')->name('removeAdmin');
-
 //Admin Routes End
 
 });
