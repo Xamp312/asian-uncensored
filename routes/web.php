@@ -41,6 +41,9 @@ Auth::routes();
 
 Route::group(['middleware' => ['auth']], function () { 
 
+    Route::get('/video/upload', [VideoController::class, 'videoUploadPage'])->name('videoUploadPage');
+
+
 Route::get('/edit/video/{id}', 'App\Http\Controllers\VideoController@editVideo')->name('editVideoPage');
 Route::post('/update/user/', 'App\Http\Controllers\HomeController@updateUser')->name('updateUser');
 
