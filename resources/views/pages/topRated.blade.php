@@ -59,7 +59,7 @@
                             @foreach($category as $cat)
                             <div class="item">
                                 <div class="category-item">
-                                    <a href="#">
+                                    <a href="{{route('categories', $cat->id)}}">
                                         <h6>{{ $cat->name }}</h6>
                                         <p>{{ $cat->count }} Videos</p>
                                     </a>

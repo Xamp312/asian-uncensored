@@ -45,7 +45,7 @@ Sort by <i class="fa fa-caret-down" aria-hidden="true"></i>
 <div class="col-xl-3 col-sm-6 mb-3">
 <div class="channels-card">
 <div class="channels-card-image">
-<a href="{{ route('profile' , $user->slug )}}"><img class="img-fluid" src="/uploads/users/{{ $user->image }}" alt=""></a>
+<a href="{{ route('profile' , $user->slug )}}"><img class="img-fluid" src="/uploads/users/profile/{{ $user->image }}" alt=""></a>
 
 </div>
 <div class="channels-card-body">
