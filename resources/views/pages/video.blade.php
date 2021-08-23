@@ -329,7 +329,7 @@ Sort by <i class="fa fa-caret-down" aria-hidden="true"></i>
 <div class="video-card video-card-list">
 <div class="video-card-image">
 <a class="play-icon" href="{{ route('videoPage', $video->slug) }}"><i class="fas fa-play-circle"></i></a>
-<a href="{{ route('videoPage', $video->slug) }}"><img class="img-fluid" src="/img/v1.png" alt=""></a>
+<a href="{{ route('videoPage', $video->slug) }}"><img class="img-fluid" src="/uploads/thumbnails/{{ $video->image_name }}" alt=""></a>
 <!-- <div class="time">3:50</div>
  --></div>
 <div class="video-card-body">
