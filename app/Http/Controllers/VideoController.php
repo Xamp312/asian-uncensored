@@ -230,9 +230,8 @@ class VideoController extends Controller
            
         } else {
             if($videoReact){
-                    $video->likes -= 1;
-                    $video->save();
-
+                $video->likes -= 1;
+                $video->save();
             }
             $newVote->react = 2;
         }
@@ -247,32 +246,32 @@ class VideoController extends Controller
 
 
         $videoRate = Rate::where('video_id', $request->videoId)
-            ->where('user_id', Auth::id());
-dd($videoRate->rate);
-            if($videoRate){
+            ->where('user_id', Auth::id())->get();
 
+            if($videoRate->isEmpty()){
+
+                $newRate = new Rate();
+                $newRate->video_id = $request->videoId;
+                $newRate->user_id = Auth::id();
+                $newRate->rate = $request->ratings;
+                $newRate->save();
+
+
+
+                $video = Video::find($request->videoId);
+                $count = Rate::where('video_id' ,$video->id)->count();
+                if($count < 1){
+                    $count = 1;
+                }
+                    $total = $video->rating + $request->ratings;
+                    $video->rating = $total / $count;
+                    // $video->rating = round($rating, 0);
+                    $video->save();
             }
 
-           else{
-            $video = Video::find($request->videoId);
-            $count = Rate::where('video_id' ,$video->id)->count();
-            $count += 1;
-
-                $total = $video->rating + $request->ratings;
-                $rating = $total / $count;
-                $video->rating = round($rating, 0);
-                $video->save();
-    
-    
-
-            $newRate = new Rate();
-            $newRate->video_id = $request->videoId;
-            $newRate->user_id = Auth::id();
-            $newRate->rate = $request->ratings;
-            $newRate->save();
-           }
                 
           
+
 
     }
 
