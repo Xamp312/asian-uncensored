@@ -193,7 +193,11 @@
         <span class="fa fa-star whiteStar" data-rating="3"></span>
         <span class="fa fa-star whiteStar" data-rating="4"></span>
         <span class="fa fa-star whiteStar" data-rating="5"></span>
-        <input type="hidden" name="whatever1" class="rating-value" value="1">
+
+
+      <input type="hidden" name="whatever1" class="rating-value" value="{{ $userRating }}"> 
+
+
       </div>
 
 <!-- 

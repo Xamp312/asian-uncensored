@@ -197,6 +197,19 @@ class VideoController extends Controller
                                 ->get();
 
 
+        $rate = Rate::where('video_id', $video->id)
+                        ->where('user_id', Auth::user()->id)
+                                ->first();
+        
+
+        if($rate){
+            $userRating = $rate->rate; 
+        }
+        else {
+            $userRating = 0;
+        }
+
+
         $usersOnVideoOnline = array();
 
         foreach($usersOnVideo as $uOV) {
@@ -208,7 +221,8 @@ class VideoController extends Controller
         return view('pages.video')->with([
             'video' => $video,
             'usersOnVideoOnline' => $usersOnVideoOnline, 
-            'videos' => $videos
+            'videos' => $videos,
+            'userRating' => $userRating
         ]);
     }
 
