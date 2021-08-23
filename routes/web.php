@@ -22,6 +22,7 @@ Route::get('/videos/mostviews', [VideoController::class, 'mostViewsVideos'])->na
 Route::get('/videos/mostlikes', [VideoController::class, 'mostLikesVideos'])->name('mostLikesVideos');
 Route::get('/videos/topRated', [VideoController::class, 'topRated'])->name('topRated');
 Route::get('/videos/mostLiked', [VideoController::class, 'mostLiked'])->name('mostLiked');
+Route::get('/videos/category/{id}', [VideoController::class, 'categories'])->name('categories');
 Route::get('/video/upload', [VideoController::class, 'videoUploadPage'])->name('videoUploadPage');
 Route::get('/video/{slug}', [VideoController::class, 'videoPage'])->name('videoPage');
 Route::post('/video/react', [VideoController::class, 'videoReact'])->name('videoReact');

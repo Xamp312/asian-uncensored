@@ -113,6 +113,17 @@ class VideoController extends Controller
 
     }
 
+    public function categories($id)
+    {
+        $cat1 = Category::find($id);
+        $videos = Video::where('category_id', $id)->orderBy('created_at', 'desc')->take(50)->paginate(16);
+        $category = Category::all();
+
+        return view('pages.categories', compact('videos', 'category', 'cat1'));
+
+
+    }
+
     public function videoPage($slug)
     {
 

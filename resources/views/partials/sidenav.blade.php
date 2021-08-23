@@ -52,7 +52,7 @@
 
 @foreach($category as $cat)
 <li style="margin-left:2rem;">
-<a href="/videos/category/{{ $cat->name }}" style="color:#c0392b">
+<a href="{{route('categories', $cat->id)}}" style="color:#c0392b">
 {{ $cat->name }}
 </a>
 </li>
