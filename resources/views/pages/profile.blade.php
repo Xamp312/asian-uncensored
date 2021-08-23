@@ -40,10 +40,10 @@ Social &nbsp;
 </button>
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 <ul class="navbar-nav mr-auto">
-<li class="nav-item active">
-<a class="nav-link" href="#">Videos <span class="sr-only">(current)</span></a>
+<li class="nav-item active showVideos">
+<a class="nav-link " href="#" >Videos <span class="sr-only">(current)</span></a>
 </li>
-<li class="nav-item">
+<!-- <li class="nav-item">
 <a class="nav-link" href="#">Playlist</a>
 </li>
 <li class="nav-item">
@@ -51,34 +51,63 @@ Social &nbsp;
 </li>
 <li class="nav-item">
 <a class="nav-link" href="#">Discussion</a>
+</li> -->
+<li class="nav-item showAbout">
+<a class="nav-link " href="#">About</a>
 </li>
-<li class="nav-item">
-<a class="nav-link" href="#">About</a>
-</li>
-<li class="nav-item dropdown">
-<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-Donate
-</a>
-<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-<a class="dropdown-item" href="#">Action</a>
-<a class="dropdown-item" href="#">Another action</a>
-<div class="dropdown-divider"></div>
-<a class="dropdown-item" href="#">Something else here</a>
-</div>
-</li>
+
+
+
+
 </ul>
-<form class="form-inline my-2 my-lg-0">
-<input class="form-control form-control-sm mr-sm-1" type="search" placeholder="Search" aria-label="Search"><button class="btn btn-outline-success btn-sm my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button> &nbsp;&nbsp;&nbsp; <button class="btn btn-outline-danger btn-sm" type="button">Subscribe <strong>1.4M</strong></button>
-</form>
+
+
 </div>
 </nav>
 </div>
+
+
+
 <div class="container-fluid">
 <div class="video-block section-padding">
+
+
+<div class="aboutBox" style="display: none;"> 
 <div class="row">
+
 <div class="col-md-12">
 <div class="main-title">
-<div class="btn-group float-right right-action">
+
+<h6>About </h6>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-12 aboutBlock">
+<div class="main-title">
+
+<h6>{{ $user->about }}</h6>
+</div>
+</div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+<div class="videosBox">
+
+<div class="row">
+
+<div class="col-md-12">
+<div class="main-title">
+<!-- <div class="btn-group float-right right-action">
 <a href="#" class="right-action-link text-gray" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 Sort by <i class="fa fa-caret-down" aria-hidden="true"></i>
 </a>
@@ -87,264 +116,58 @@ Sort by <i class="fa fa-caret-down" aria-hidden="true"></i>
 <a class="dropdown-item" href="#"><i class="fas fa-fw fa-signal"></i> &nbsp; Viewed</a>
 <a class="dropdown-item" href="#"><i class="fas fa-fw fa-times-circle"></i> &nbsp; Close</a>
 </div>
-</div>
+</div> -->
 <h6>Videos</h6>
 </div>
 </div>
+
+@foreach($videos as $video)
+
 <div class="col-xl-3 col-sm-6 mb-3">
-<div class="video-card">
-<div class="video-card-image">
-<a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-<a href="#"><img class="img-fluid" src="img/v1.png" alt=""></a>
-<div class="time">3:50</div>
-</div>
+	<div class="video-card">
+	<div class="video-card-image">
+	<a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
+	<a href="{{ route('videoPage', $video->slug) }}"><img class="img-fluid" src="/uploads/thumbnails/{{ $video->image_name }}" alt=""></a>
+	<!-- <div class="time">3:50</div>
+	 -->
+
+	</div>
 <div class="video-card-body">
 <div class="video-title">
-<a href="#">There are many variations of passages of Lorem</a>
+
+
+  @if($video->isOwner())
+        <a href="{{ route('editVideoPage',$video->id) }}" style="color:#BD2126;float: right;">
+		    <span videoId="{{ $video->id }}" class="deletevideo pr-3" style="cursor: pointer;">
+
+				<i class="fa fa-edit"></i>
+
+	        </span>
+
+        </a>
+    @endif    
+        
+
+<a href="{{ route('videoPage', $video->slug) }}">{{ $video->title }}</a>
 </div>
 <div class="video-page text-success">
-Education <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
+ {{ \App\Models\Category::find($video->category_id)->name }}  <!-- <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i> --></a>
 </div>
 <div class="video-view">
-1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
+                                        {{ $video->views }} views &nbsp; <i class="fas fa-calendar-alt"></i> {{ $video->created_at->diffForHumans() }} 
 </div>
 </div>
 </div>
 </div>
-<div class="col-xl-3 col-sm-6 mb-3">
-<div class="video-card">
-<div class="video-card-image">
-<a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-<a href="#"><img class="img-fluid" src="img/v2.png" alt=""></a>
-<div class="time">3:50</div>
+
+@endforeach
+
 </div>
-<div class="video-card-body">
-<div class="video-title">
-<a href="#">There are many variations of passages of Lorem</a>
+
+
+
+
 </div>
-<div class="video-page text-success">
-Education <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
-</div>
-<div class="video-view">
-1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
-</div>
-</div>
-</div>
- </div>
-<div class="col-xl-3 col-sm-6 mb-3">
-<div class="video-card">
-<div class="video-card-image">
-<a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-<a href="#"><img class="img-fluid" src="img/v3.png" alt=""></a>
-<div class="time">3:50</div>
-</div>
-<div class="video-card-body">
-<div class="video-title">
-<a href="#">There are many variations of passages of Lorem</a>
-</div>
-<div class="video-page text-danger">
-Education <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Unverified"><i class="fas fa-frown text-danger"></i></a>
-</div>
-<div class="video-view">
-1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
-</div>
-</div>
-</div>
-</div>
-<div class="col-xl-3 col-sm-6 mb-3">
-<div class="video-card">
-<div class="video-card-image">
-<a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-<a href="#"><img class="img-fluid" src="img/v4.png" alt=""></a>
-<div class="time">3:50</div>
-</div>
-<div class="video-card-body">
-<div class="video-title">
-<a href="#">There are many variations of passages of Lorem</a>
-</div>
-<div class="video-page text-success">
-Education <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
-</div>
-<div class="video-view">
-1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
-</div>
-</div>
-</div>
-</div>
-<div class="col-xl-3 col-sm-6 mb-3">
-<div class="video-card">
-<div class="video-card-image">
-<a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-<a href="#"><img class="img-fluid" src="img/v5.png" alt=""></a>
-<div class="time">3:50</div>
-</div>
-<div class="video-card-body">
-<div class="video-title">
-<a href="#">There are many variations of passages of Lorem</a>
-</div>
-<div class="video-page text-success">
-Education <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
-</div>
-<div class="video-view">
-1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
-</div>
-</div>
-</div>
-</div>
-<div class="col-xl-3 col-sm-6 mb-3">
-<div class="video-card">
-<div class="video-card-image">
-<a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-<a href="#"><img class="img-fluid" src="img/v6.png" alt=""></a>
-<div class="time">3:50</div>
-</div>
-<div class="video-card-body">
-<div class="video-title">
-<a href="#">There are many variations of passages of Lorem</a>
-</div>
-<div class="video-page text-danger">
-Education <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Unverified"><i class="fas fa-frown text-danger"></i></a>
-</div>
-<div class="video-view">
-1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
-</div>
-</div>
-</div>
-</div>
-<div class="col-xl-3 col-sm-6 mb-3">
-<div class="video-card">
-<div class="video-card-image">
-<a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-<a href="#"><img class="img-fluid" src="img/v7.png" alt=""></a>
-<div class="time">3:50</div>
-</div>
-<div class="video-card-body">
-<div class="video-title">
-<a href="#">There are many variations of passages of Lorem</a>
-</div>
-<div class="video-page text-success">
-Education <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
-</div>
-<div class="video-view">
-1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
-</div>
-</div>
-</div>
-</div>
-<div class="col-xl-3 col-sm-6 mb-3">
-<div class="video-card">
-<div class="video-card-image">
-<a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-<a href="#"><img class="img-fluid" src="img/v8.png" alt=""></a>
-<div class="time">3:50</div>
-</div>
-<div class="video-card-body">
-<div class="video-title">
-<a href="#">There are many variations of passages of Lorem</a>
-</div>
-<div class="video-page text-success">
-Education <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
-</div>
-<div class="video-view">
-1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
-</div>
-</div>
-</div>
-</div>
-<div class="col-xl-3 col-sm-6 mb-3">
-<div class="video-card">
-<div class="video-card-image">
-<a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-<a href="#"><img class="img-fluid" src="img/v1.png" alt=""></a>
-<div class="time">3:50</div>
-</div>
-<div class="video-card-body">
- <div class="video-title">
-<a href="#">There are many variations of passages of Lorem</a>
-</div>
-<div class="video-page text-success">
-Education <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
-</div>
-<div class="video-view">
-1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
-</div>
-</div>
-</div>
-</div>
-<div class="col-xl-3 col-sm-6 mb-3">
-<div class="video-card">
-<div class="video-card-image">
-<a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-<a href="#"><img class="img-fluid" src="img/v2.png" alt=""></a>
-<div class="time">3:50</div>
-</div>
-<div class="video-card-body">
-<div class="video-title">
-<a href="#">There are many variations of passages of Lorem</a>
-</div>
-<div class="video-page text-success">
-Education <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
-</div>
-<div class="video-view">
-1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
-</div>
-</div>
-</div>
-</div>
-<div class="col-xl-3 col-sm-6 mb-3">
-<div class="video-card">
-<div class="video-card-image">
-<a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-<a href="#"><img class="img-fluid" src="img/v3.png" alt=""></a>
-<div class="time">3:50</div>
-</div>
-<div class="video-card-body">
-<div class="video-title">
-<a href="#">There are many variations of passages of Lorem</a>
-</div>
-<div class="video-page text-danger">
-Education <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Unverified"><i class="fas fa-frown text-danger"></i></a>
-</div>
-<div class="video-view">
-1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
-</div>
-</div>
-</div>
-</div>
-<div class="col-xl-3 col-sm-6 mb-3">
-<div class="video-card">
-<div class="video-card-image">
-<a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
-<a href="#"><img class="img-fluid" src="img/v4.png" alt=""></a>
-<div class="time">3:50</div>
-</div>
-<div class="video-card-body">
-<div class="video-title">
-<a href="#">There are many variations of passages of Lorem</a>
-</div>
-<div class="video-page text-success">
- Education <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a>
-</div>
-<div class="video-view">
-1.8M views &nbsp;<i class="fas fa-calendar-alt"></i> 11 Months ago
-</div>
-</div>
-</div>
-</div>
-</div>
-<nav aria-label="Page navigation example">
-<ul class="pagination justify-content-center pagination-sm mb-0">
-<li class="page-item disabled">
-<a tabindex="-1" href="#" class="page-link">Previous</a>
-</li>
-<li class="page-item active"><a href="#" class="page-link">1</a></li>
-<li class="page-item"><a href="#" class="page-link">2</a></li>
-<li class="page-item"><a href="#" class="page-link">3</a></li>
-<li class="page-item">
-<a href="#" class="page-link">Next</a>
-</li>
-</ul>
-</nav>
 </div>
 </div>
 
@@ -353,6 +176,50 @@ Education <a title="" data-placement="top" data-toggle="tooltip" href="#" data-o
 </div>
 
 
+
+@section('footer_page')
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.showAboutBox').click(function(){
+
+		});
+
+
+
+	$(".showAbout").click(function(){
+
+		$(".aboutBox").fadeIn("slow");
+		
+
+
+		$(this).addClass("active");
+
+		$(".showVideos").removeClass("active");
+		
+		$(".videosBox").hide();
+
+	});
+
+	$(".showVideos").click(function(){
+		$(".videosBox").fadeIn("slow");
+		
+		$(this).addClass("active");
+		$(".showAbout").removeClass("active");
+
+		$(".aboutBox").hide();
+
+	});
+
+
+
+
+	});
+
+</script>
+
+
+@endsection
 
 
         @endsection
