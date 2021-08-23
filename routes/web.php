@@ -40,7 +40,15 @@ Route::group(['middleware' => ['auth']], function () {
 
 Route::get('/edit/video/{id}', 'App\Http\Controllers\VideoController@editVideo')->name('editVideoPage');
 Route::post('/update/user/', 'App\Http\Controllers\HomeController@updateUser')->name('updateUser');
+
+
+
+
 Route::get('/settings', function () { return view('pages.settings'); });
+Route::post('/settings', [HomeController::class, 'settingsUpdate'])->name('settingsUpdate');
+
+
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //Admin Routes

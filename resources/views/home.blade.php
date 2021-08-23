@@ -28,18 +28,18 @@
  <div class="single-channel-page" id="content-wrapper">
 <div class="single-channel-image">
     @if($user->cover)
-    <img class="img-fluid" alt="" src="uploads/users/{{$user->cover}}">
+    <img class="img-fluid" alt="" src="/uploads/users/cover/{{$user->cover}}">
 
     @else
 <img class="img-fluid" alt="" src="img/channel-banner.png">
 @endif
 <div class="channel-profile">
-<img class="channel-profile-img" alt="" src="uploads/users/{{$user->image}}">
+<img class="channel-profile-img" alt="" src="/uploads/users/profile/{{$user->image}}">
 <div class="social hidden-xs">
 Social &nbsp;
-<a class="fb" href="{{$user->facebook}}">Facebook</a>
-<a class="tw" href="{{$user->twitter}}">Twitter</a>
-<a class="ig" href="{{$user->instagram}}">Instagram</a>
+<a class="fb" target="_blank" href="{{$user->facebook}}">Facebook</a>
+<a class="tw" target="_blank" href="{{$user->twitter}}">Twitter</a>
+<a class="ig" target="_blank" href="{{$user->instagram}}">Instagram</a>
 </div>
 </div>
 </div>

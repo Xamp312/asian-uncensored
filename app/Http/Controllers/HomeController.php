@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Image;
+
+use Illuminate\Http\Request;
+
 use App\Models\Category;
 use App\Models\User;
 use App\Models\Video;
@@ -75,4 +79,63 @@ class HomeController extends Controller
 
 
         }
+
+        public function settingsUpdate(Request $request){
+
+            $user = Auth::user();
+
+            $user->name = $request->name;
+            // $user->email = $request->email;
+            $user->about = $request->about;
+            $user->facebook = $request->facebook;
+            $user->twitter = $request->twitter;
+            $user->instagram = $request->instagram;
+
+
+            $slug = $user->slug;
+
+            if($request->hasFile('coverimage')){
+
+
+                $image = $request->file('coverimage');
+                $filename = $slug. '.' . $image->getClientOriginalExtension();
+                $image = Image::make($image);
+
+                $image->save('uploads/users/cover/' . $filename);
+
+                $user->cover = $filename;
+
+
+            }
+                        if($request->hasFile('profileimage')){
+
+                // Profile Image 
+                $image = $request->file('profileimage');
+                $filename = $slug. '.' . $image->getClientOriginalExtension();
+                $image = Image::make($image);
+
+                $image->save('uploads/users/profile/' . $filename);
+
+                $user->image = $filename;
+
+
+
+
+
+            }
+
+
+       
+
+            $user->save();
+
+            return redirect()->back()->with('success', 'Profile Updated Successfully');
+
+
+        }
+        
+
+
+
+
 }
