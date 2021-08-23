@@ -242,20 +242,35 @@ class VideoController extends Controller
       
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
     public function profile($slug){
 
         $user = User::where('slug', $slug)->first();
 
-    if(Auth::user() == $user){
-        return redirect()->route('home');
-    }
+            if(Auth::user() == $user){
+                return redirect()->route('home');
+            }
 
-    else{
+            else{
 
-        return view('pages.profile',compact('user'));
 
-         
-    }
+            $videos = Video::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
+
+                return view('pages.profile', compact('user', 'videos'));
+
+                 
+            }
     }
 
     
