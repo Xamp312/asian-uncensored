@@ -163,7 +163,7 @@ Sort by <i class="fa fa-caret-down" aria-hidden="true"></i>
 <div class="col-xl-3 col-sm-6 mb-3">
 	<div class="video-card">
 	<div class="video-card-image">
-	<a class="play-icon" href="#"><i class="fas fa-play-circle"></i></a>
+	<a class="play-icon" href="{{ route('videoPage', $video->slug) }}"><i class="fas fa-play-circle"></i></a>
 	<a href="{{ route('videoPage', $video->slug) }}"><img class="img-fluid" src="/uploads/thumbnails/{{ $video->image_name }}" alt=""></a>
 	<!-- <div class="time">3:50</div>
 	 -->

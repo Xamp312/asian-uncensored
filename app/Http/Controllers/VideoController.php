@@ -130,11 +130,39 @@ class VideoController extends Controller
 
         $video = Video::where('slug', $slug)->first();
 
+
+       
+
+
         if(Auth::check()){
             $user = User::find(Auth::id()); 
             $user->video_id = $video->id; 
             $user->save();
         }
+        else {
+            if($video->is_private == 1) {
+
+                   if(!session()->has('url.intended'))
+                {
+                    session(['url.intended' => route('videoPage', $video->slug) ]);
+                }
+
+
+                return redirect()->route('login');
+            
+            }
+   
+        }
+
+
+
+
+
+
+
+
+
+
 
 
         $video->views += 1;
