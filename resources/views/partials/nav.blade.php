@@ -5,11 +5,13 @@
 </button> &nbsp;&nbsp;
 <a class="navbar-brand " href="{{ route('landingPage') }}"><img class="img-fluid" alt="" src="/img/logo-6.png" style="height:28px;"></a>
 
-<form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-5 my-2 my-md-0 osahan-navbar-search">
+<form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-5 my-2 my-md-0 osahan-navbar-search" action="{{ route('searchVideo')}}">
 <div class="input-group">
-<input type="text" class="form-control" placeholder="Search for...">
+
+
+<input type="text" name="q" class="form-control" placeholder="Search for...">
 <div class="input-group-append">
-<button class="btn btn-light" type="button">
+<button class="btn btn-light" type="submit">
 <i class="fas fa-search"></i>
 </button>
 </div>

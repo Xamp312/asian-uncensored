@@ -204,7 +204,7 @@
 </div>
 
 
-<img class="img-fluid" src="/uploads/users/{{ $video->user->image }}" alt="">
+<img class="img-fluid" src="/uploads/users/profile/{{ $video->user->image }}" alt="">
 
 
 

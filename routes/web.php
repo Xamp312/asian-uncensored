@@ -31,6 +31,12 @@ Route::post('/video/upload', [VideoController::class, 'upload'])->name('videoUpl
 Route::get('/community', [CommunityController::class, 'communityPage'])->name('communityPage');
 Route::get('/profile/{slug}','App\Http\Controllers\VideoController@profile' )->name('profile');
 
+
+
+Route::get('/search', [VideoController::class, 'searchVideo'])->name('searchVideo');
+
+
+
 //Authentication Routes
 Route::get('/login', function () { return view('pages.login');});
 Route::get('/register', function () {return view('pages.register');});

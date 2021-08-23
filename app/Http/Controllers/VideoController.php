@@ -91,6 +91,22 @@ class VideoController extends Controller
         return view('pages.latestVideos', compact('videos', 'category'));
     }
 
+
+
+    public function searchVideo(Request $request)
+    {
+    
+
+        $videos = Video::where('title' , 'LIKE',  '%' . $request->q . '%')->orderBy('rating', 'desc')->take(50)->paginate(16);
+        $category = Category::all();
+        $q = $request->q; 
+        
+        return view('pages.search', compact('videos', 'category', 'q'));
+
+
+    }
+
+
     public function topRated()
     {
         
