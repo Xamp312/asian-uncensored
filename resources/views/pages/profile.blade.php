@@ -23,7 +23,7 @@
 <img class="img-fluid" alt="" src="img/channel-banner.png">
 @endif
 <div class="channel-profile">
-<img class="channel-profile-img" alt="" src="/uploads/users/profile{{$user->image}}">
+<img class="channel-profile-img" alt="" src="/uploads/users/profile/{{$user->image}}">
 <div class="social hidden-xs">
 Social &nbsp;
 <a class="fb" href="{{$user->facebook}}">Facebook</a>
