@@ -71,8 +71,6 @@ class VideoController extends Controller
     }
 
 
-  
-
 
     public function mostViewsVideos()
     {
@@ -95,7 +93,24 @@ class VideoController extends Controller
 
     public function topRated()
     {
-        //round($value, 2);
+        
+        $videos = Video::orderBy('rating', 'desc')->take(50)->paginate(16);
+        $category = Category::all();
+
+        return view('pages.topRated', compact('videos', 'category'));
+
+
+    }
+
+    public function mostLiked()
+    {
+        
+        $videos = Video::orderBy('likes', 'desc')->take(50)->paginate(16);
+        $category = Category::all();
+
+        return view('pages.mostLiked', compact('videos', 'category'));
+
+
     }
 
     public function videoPage($slug)
@@ -134,8 +149,6 @@ class VideoController extends Controller
                 array_push($usersOnVideoOnline, $uOV);
             }
         }
-
-
         
         return view('pages.video')->with([
             'video' => $video,
@@ -146,19 +159,30 @@ class VideoController extends Controller
     public function videoReact(Request $request)
     {
 
+        $video = Video::find($request->videoId);
         $videoReact = Vote::where('video_id', $request->videoId)
-            ->where('user_id', Auth::id())
-            ->delete();
-
+            ->where('user_id', Auth::id());
+            
         $newVote = new Vote;
         $newVote->video_id = $request->videoId;
         $newVote->user_id = Auth::id();
         if ($request->react == 1) {
             $newVote->react = 1;
+            if(Auth::id() == $video->user_id){}
+            else{
+                $video->likes += 1;
+                $video->save();
+            }
+        
+           
         } else {
+            if($videoReact){
+                $video->likes -= 1;
+                $video->save();
+            }
             $newVote->react = 2;
         }
-
+        $videoReact->delete();
         $newVote->save();
     }
 
@@ -166,18 +190,32 @@ class VideoController extends Controller
     public function videoRate(Request $request)
     {
 
+
         $videoRate = Rate::where('video_id', $request->videoId)
-            ->where('user_id', Auth::id())
-            ->delete();
+            ->where('user_id', Auth::id());
 
+            if($videoRate){}
+            else{
+                $video = Video::find($request->videoId);
+                $count = Rate::where('video_id' ,$video->id)->count();
+                $count += 1;
 
-        $newRate = new Rate;
-        $newRate->video_id = $request->videoId;
-        $newRate->user_id = Auth::id();
-        $newRate->rate = $request->ratings;
-    
+                    $total = $video->rating + $request->ratings;
+                    $rating = $total / $count;
+                    $video->rating = round($rating, 0);
+                    $video->save();
+        
+            
+                $videoRate->delete();
+        
 
-        $newRate->save();
+                $newRate = new Rate;
+                $newRate->video_id = $request->videoId;
+                $newRate->user_id = Auth::id();
+                $newRate->rate = $request->ratings;
+                $newRate->save();
+            }
+
     }
 
 
@@ -207,9 +245,6 @@ class VideoController extends Controller
     public function profile($slug){
 
         $user = User::where('slug', $slug)->first();
-
-
-
 
     if(Auth::user() == $user){
         return redirect()->route('home');
