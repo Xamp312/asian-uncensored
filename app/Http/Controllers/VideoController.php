@@ -100,7 +100,7 @@ class VideoController extends Controller
         $videos = Video::where('title' , 'LIKE',  '%' . $request->q . '%')->orderBy('rating', 'desc')->take(50)->paginate(16);
         $category = Category::all();
         $q = $request->q; 
-        
+
         return view('pages.search', compact('videos', 'category', 'q'));
 
 
@@ -148,7 +148,7 @@ class VideoController extends Controller
 
 
        
-
+        $videos = Video::inRandomOrder()->limit(10)->get();
 
         if(Auth::check()){
             $user = User::find(Auth::id()); 
@@ -207,7 +207,8 @@ class VideoController extends Controller
         
         return view('pages.video')->with([
             'video' => $video,
-            'usersOnVideoOnline' => $usersOnVideoOnline
+            'usersOnVideoOnline' => $usersOnVideoOnline, 
+            'videos' => $videos
         ]);
     }
 

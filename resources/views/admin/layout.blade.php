@@ -23,7 +23,7 @@
         Admin - Dashboard | Asian Uncensored
     </title>
     <!-- Favicon -->
-    <link href="/img/favicon.png" rel="icon" type="image/png">
+    <link href="/img/favi.png" rel="icon" type="image/png">
     <!-- Fonts -->
     <link href="../../css.css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <!-- Icons -->
