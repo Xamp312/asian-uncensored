@@ -64,7 +64,7 @@ Upload Video
 {{ Auth::user()->name }}
 </a>
 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-<a class="dropdown-item" href="{{route('home')}}"><i class="fas fa-fw fa-user-circle"></i> &nbsp; My Account</a>
+<a class="dropdown-item" href="{{route('home')}}"><i class="fas fa-fw fa-user-circle"></i> &nbsp; My Profile</a>
 
 <a class="dropdown-item" href="/settings"><i class="fas fa-fw fa-cog"></i> &nbsp; Settings</a>
 <div class="dropdown-divider"></div>

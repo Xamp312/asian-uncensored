@@ -235,6 +235,9 @@ class VideoController extends Controller
 
         $user = User::where('slug', $slug)->first();
 
+
+
+
     if(Auth::user() == $user){
         return redirect()->route('home');
     }
