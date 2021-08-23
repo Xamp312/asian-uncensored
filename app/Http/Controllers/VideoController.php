@@ -218,22 +218,20 @@ class VideoController extends Controller
         $videoReact = Vote::where('video_id', $request->videoId)
             ->where('user_id', Auth::id());
             
-        $newVote = new Vote;
+        $newVote = new Vote();
         $newVote->video_id = $request->videoId;
         $newVote->user_id = Auth::id();
         if ($request->react == 1) {
             $newVote->react = 1;
-            if(Auth::id() == $video->user_id){}
-            else{
                 $video->likes += 1;
                 $video->save();
-            }
         
            
         } else {
             if($videoReact){
-                $video->likes -= 1;
-                $video->save();
+                    $video->likes -= 1;
+                    $video->save();
+
             }
             $newVote->react = 2;
         }
@@ -246,30 +244,34 @@ class VideoController extends Controller
     {
 
 
+
         $videoRate = Rate::where('video_id', $request->videoId)
             ->where('user_id', Auth::id());
+dd($videoRate->rate);
+            if($videoRate){
 
-            if($videoRate){}
-            else{
-                $video = Video::find($request->videoId);
-                $count = Rate::where('video_id' ,$video->id)->count();
-                $count += 1;
-
-                    $total = $video->rating + $request->ratings;
-                    $rating = $total / $count;
-                    $video->rating = round($rating, 0);
-                    $video->save();
-        
-            
-                $videoRate->delete();
-        
-
-                $newRate = new Rate;
-                $newRate->video_id = $request->videoId;
-                $newRate->user_id = Auth::id();
-                $newRate->rate = $request->ratings;
-                $newRate->save();
             }
+
+           else{
+            $video = Video::find($request->videoId);
+            $count = Rate::where('video_id' ,$video->id)->count();
+            $count += 1;
+
+                $total = $video->rating + $request->ratings;
+                $rating = $total / $count;
+                $video->rating = round($rating, 0);
+                $video->save();
+    
+    
+
+            $newRate = new Rate();
+            $newRate->video_id = $request->videoId;
+            $newRate->user_id = Auth::id();
+            $newRate->rate = $request->ratings;
+            $newRate->save();
+           }
+                
+          
 
     }
 
