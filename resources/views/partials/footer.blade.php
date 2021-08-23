@@ -10,10 +10,10 @@
                 </p>
             </div>
             <div class="col-lg-6 col-sm-6 text-right">
-                <div class="app">
+               <!--  <div class="app">
                     <a href="#"><img alt="" src="img/google.png"></a>
                     <a href="#"><img alt="" src="img/apple.png"></a>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
