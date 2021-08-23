@@ -94,12 +94,23 @@ class VideoController extends Controller
     public function topRated()
     {
         
-        $videos = Video::orderBy('rating', 'desc')->take(1);
-        dd($videos);
-
+        $videos = Video::orderBy('rating', 'desc')->take(50)->paginate(16);
         $category = Category::all();
 
-        // return view('pages')
+        return view('pages.topRated', compact('videos', 'category'));
+
+
+    }
+
+    public function mostLiked()
+    {
+        
+        $videos = Video::orderBy('likes', 'desc')->take(50)->paginate(16);
+        $category = Category::all();
+
+        return view('pages.mostLiked', compact('videos', 'category'));
+
+
     }
 
     public function videoPage($slug)
@@ -234,9 +245,6 @@ class VideoController extends Controller
     public function profile($slug){
 
         $user = User::where('slug', $slug)->first();
-
-
-
 
     if(Auth::user() == $user){
         return redirect()->route('home');

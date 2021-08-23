@@ -15,7 +15,7 @@
 <div class="dropdown-menu">
 <a class="dropdown-item" href="{{route ('topRated') }}">Top Rated</a>
 <a class="dropdown-item" href="{{ route('mostViewsVideos') }}">Most Viewed</a>
-<a class="dropdown-item" href="#">Most Likes</a>
+<a class="dropdown-item" href="{{route ('mostLiked') }}">Most Liked</a>
 <a class="dropdown-item" href="{{ route('latestVideos') }}">Latest Videos</a>
 
 
