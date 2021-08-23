@@ -7,7 +7,7 @@
       </button>
       <!-- Brand -->
       <a class="navbar-brand pt-0" href="/">
-        <img src="/img/favicon.png" class="navbar-brand-img" alt="...">
+        <img src="/img/newLogoTest.jpg" class="navbar-brand-img" alt="...">
       </a>
       <!-- User -->
       <ul class="nav align-items-center d-md-none">
@@ -195,9 +195,9 @@
 
       </div>
       <div class="col-xl-12">
-        <div class="copyright text-center  text-muted">
+  <!--       <div class="copyright text-center  text-muted">
           &copy; {{now()->year }} <br> <a href="#" class="font-weight-bold ml-1" target="_blank" style="color:red;">Asian Uncensored</a>
-        </div>
+        </div> -->
       </div>
     </div>
   </nav>
