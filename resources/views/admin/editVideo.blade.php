@@ -17,7 +17,7 @@
         <div class="col-lg-12 col-md-12">
           <h1 class="display-2 text-white">Edit {{$video->title}}</h1>
           <div class="col-4  pl-0">
-            <a href="{{route('home')}}" class="btn btn-sm btn-primary">
+            <a href="{{route('videos')}}" class="btn btn-sm btn-primary">
               <i class="fa fa-arrow-left"></i>
 
               Back</a>

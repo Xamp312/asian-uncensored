@@ -25,9 +25,12 @@
                         <table class="table align-items-center table-dark table-flush">
                             <thead class="thead-dark">
                                 <tr>
+                                    <th scope="col">Upload Date</th>
                                     <th scope="col">Title</th>
                                     <th scope="col">Author</th>
-                                    <th scope="col">Upload Date</th>
+                                    <th scope="col">Views</th>
+                                    <th scope="col">Likes</th>
+                                    <th scope="col">Rating</th>
 
                                     <th scope="col"></th>
                                 </tr>
@@ -35,6 +38,9 @@
                             <tbody>
                                 @foreach($videos as $video)
                                 <tr>
+                                    <td>
+                                    {{$video->created_at}}
+                                    </td>
                                     <th scope="row">
                                         {{$video->title}}
                                     </th>
@@ -42,12 +48,20 @@
                                     {{$video->user->name}}
                                     </td>
                                     <td>
-                                    {{$video->created_at}}
+                                    {{$video->views}}
+                                    </td>
+                                    <td>
+                                    {{$video->likes}}
+                                    </td>
+                                    <td>
+                                    {{$video->rating}}
                                     </td>
                                   
                 
                                     <td class="text-right">
 
+                                    <a class="btn btn-sm btn-warning"
+                                        href="/uploads/videos/{{$video->video_name}}" download>Download</a>
                                     <a class="btn btn-sm btn-success"
                                         href="{{route('editVideo', $video->id)}}">Edit</a>
                                         <a class="btn btn-sm btn-danger"
