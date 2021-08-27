@@ -2,7 +2,7 @@
 
 
 @section('head_page')
-    <title>Asian Uncensored</title>
+<title>Asian Uncensored</title>
 @endsection
 
 
@@ -34,7 +34,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="main-title">
-                 <!--            <div class="btn-group float-right right-action">
+                            <!--            <div class="btn-group float-right right-action">
                                 <a href="#" class="right-action-link text-gray" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
                                     <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
@@ -51,11 +51,8 @@
                             <h6>Video Categories</h6>
                         </div>
                     </div>
-                    <div class="col-md-12">
+                    
                         <div class="owl-carousel owl-carousel-category">
-
-
-
                             @foreach($category as $cat)
                             <div class="item">
                                 <div class="category-item">
@@ -67,12 +64,12 @@
                             </div>
 
                             @endforeach
-                      
-                   
-                        
-                  
+
+
+
+
                         </div>
-                    </div>
+                    
                 </div>
             </div>
             <hr>
@@ -80,81 +77,72 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="main-title">
-                   <!--          <div class="btn-group float-right right-action">
-                                <a href="#" class="right-action-link text-gray" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                    Sort by <i class="fa fa-caret-down" aria-hidden="true"></i>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item" href="#"><i class="fas fa-fw fa-star"></i> &nbsp; Top
-                                        Rated</a>
-                                    <a class="dropdown-item" href="#"><i class="fas fa-fw fa-signal"></i> &nbsp;
-                                        Viewed</a>
-                                    <a class="dropdown-item" href="#"><i class="fas fa-fw fa-times-circle"></i> &nbsp;
-                                        Close</a>
-                                </div>
-                            </div> -->
+
                             <h6>Latest Videos</h6>
                         </div>
                     </div>
 
 
                     @foreach($videos as $video)
-                     <div class="col-xl-3 col-sm-6 mb-3">
-                            <div class="video-card">
-                                <div class="video-card-image">
-                                    <a class="play-icon" href="{{ route('videoPage', $video->slug) }}"><i class="fas fa-play-circle"></i></a>
-                                    <a href="{{ route('videoPage', $video->slug) }}"><img class="img-fluid" src="/uploads/thumbnails/{{ $video->image_name }}" alt=""></a>
-<!--                                     <div class="time">3:50</div>
- -->                                </div>
-                                <div class="video-card-body">
-                                    <div class="video-title">
-                                        <a href="{{ route('videoPage', $video->slug) }}">{{ $video->title }}</a>
-                                    </div>
-                                    <div class="video-page text-success">
-                                        {{ \App\Models\Category::find($video->category_id)->name }} 
+                    <div class="col-xl-3 col-sm-6 mb-3">
+                        <div class="video-card">
+                            <div class="video-card-image">
+                                <a class="play-icon" href="{{ route('videoPage', $video->slug) }}"><i
+                                        class="fas fa-play-circle"></i></a>
+                                <a href="{{ route('videoPage', $video->slug) }}"><img class="img-fluid"
+                                        src="/uploads/thumbnails/{{ $video->image_name }}" alt=""></a>
+                                <!--                                     <div class="time">3:50</div>
+ -->
+                            </div>
+                            <div class="video-card-body">
+                                <div class="video-title">
+                                    <a href="{{ route('videoPage', $video->slug) }}">{{ $video->title }}</a>
+                                </div>
+                                <div class="video-page text-success">
+                                    {{ \App\Models\Category::find($video->category_id)->name }}
 
-                             <!--            <a title="" data-placement="top" data-toggle="tooltip" href="#"
+                                    <!--            <a title="" data-placement="top" data-toggle="tooltip" href="#"
                                             data-original-title="Verified"><i
                                                 class="fas fa-check-circle text-success"></i></a> -->
-                                    </div>
-                                    <div class="video-view">
-                                        {{ $video->views }} views &nbsp; <i class="fas fa-calendar-alt"></i> {{ $video->created_at->diffForHumans() }} 
-                                    </div>
+                                </div>
+                                <div class="video-view">
+                                    {{ $video->views }} views &nbsp; <i class="fas fa-calendar-alt"></i>
+                                    {{ $video->created_at->diffForHumans() }}
                                 </div>
                             </div>
                         </div>
-           
+                    </div>
+
                     @endforeach
-         
-                 
-            
+
+
+
                 </div>
             </div>
             <hr class="mt-0">
 
 
-<div>
-    
-    @if ($videos->lastPage() > 1)
-<ul class="pagination justify-content-center pagination-sm mb-4">
-    <li class="page-item {{ ($videos->currentPage() == 1) ? ' disabled' : '' }}">
-        <a class="page-link" href="{{ $videos->url(1) }}">Previous</a>
-    </li>
-    @for ($i = 1; $i <= $videos->lastPage(); $i++)
-        <li class="page-item {{ ($videos->currentPage() == $i) ? ' active' : '' }}">
-            <a  class="page-link" href="{{ $videos->url($i) }}">{{ $i }}</a>
-        </li>
-    @endfor
-    <li class="page-item {{ ($videos->currentPage() == $videos->lastPage()) ? ' disabled' : '' }}">
-        <a class="page-link" href="{{ $videos->url($videos->currentPage()+1) }}" >Next</a>
-    </li>
-</ul>
-@endif
+            <div>
 
-</div>
+                @if ($videos->lastPage() > 1)
+                <ul class="pagination justify-content-center pagination-sm mb-4">
+                    <li class="page-item {{ ($videos->currentPage() == 1) ? ' disabled' : '' }}">
+                        <a class="page-link" href="{{ $videos->url(1) }}">Previous</a>
+                    </li>
+                    @for ($i = 1; $i <= $videos->lastPage(); $i++)
+                        <li class="page-item {{ ($videos->currentPage() == $i) ? ' active' : '' }}">
+                            <a class="page-link" href="{{ $videos->url($i) }}">{{ $i }}</a>
+                        </li>
+                        @endfor
+                        <li class="page-item {{ ($videos->currentPage() == $videos->lastPage()) ? ' disabled' : '' }}">
+                            <a class="page-link" href="{{ $videos->url($videos->currentPage()+1) }}">Next</a>
+                        </li>
+                </ul>
+                @endif
 
-    <!--         <div class="video-block section-padding">
+            </div>
+
+            <!--         <div class="video-block section-padding">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="main-title">

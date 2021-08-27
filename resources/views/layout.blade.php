@@ -22,7 +22,7 @@
 
 
 
-    <body id="page-top">
+    <body id="page-top" class="sidebar-toggled">
       @yield('content')
 
 
