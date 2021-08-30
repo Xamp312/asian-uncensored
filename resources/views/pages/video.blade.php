@@ -173,7 +173,7 @@
 
 
 <br />  <br />
-<small style="">Published {{ $video->created_at->diffForHumans() }}</small>
+<small >Published {{ $video->created_at->diffForHumans() }}</small>
 
 
 
