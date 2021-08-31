@@ -1,4 +1,4 @@
-<div class="d-none d-md-block ">
+<div class="d-none d-md-block d-lg-block d-sm-block">
     <nav class="navbar navbar-expand navbar-light bg-white static-top osahan-nav sticky-top ">
    
         &nbsp;&nbsp;
@@ -84,6 +84,9 @@
     </nav>
     
 </div>
+
+
+
 
 
 <div class="d-md-none d-lg-none">
@@ -175,7 +178,23 @@
                 </a>
             </li>
  
+            @else 
+       <li class="nav-item">
+                <a class="nav-link" href="{{ route('login') }}" style="color:#fff;">
+                                   <i class="fas fa-sign-in-alt fa-fw"></i>
+ &nbsp 
+                    <span>Login</span>
+                </a>
+            </li>
 
+       <li class="nav-item">
+                <a class="nav-link" href="{{ route('register') }}" style="color:#fff;">
+                    <i class="fas fa-registered fa-fw"></i>
+ &nbsp 
+                    <span>Register</span>
+                </a>
+            </li>
+    
 
 
             @endif

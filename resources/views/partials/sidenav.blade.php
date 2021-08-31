@@ -1,4 +1,4 @@
-<div class="d-none d-md-block " >
+<div class="d-none d-md-block d-lg-block d-sm-block" >
     <ul class="sidebar navbar-nav toggled">
         <li class="nav-item active">
             <a class="nav-link" href="{{ route('landingPage') }}">
