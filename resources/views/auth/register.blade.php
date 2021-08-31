@@ -8,11 +8,11 @@
 
 
 
-<section class="login-main-wrapper">
+<section class="login-main-wrapper" style="height: auto;">
 <div class="container-fluid pl-0 pr-0">
 <div class="row no-gutters">
-<div class="col-md-4 col-sm-12 p-5 bg-white">
-<div class="" >
+<div class="col-md-5 col-sm-12 p-5 bg-white ">
+<div class="">
 <div class="text-center mb-5 login-main-left-header pt-4">
     <a href="{{ route('landingPage') }}">
 <img src="img/logo-2.png" class="img-fluid" alt="LOGO">
