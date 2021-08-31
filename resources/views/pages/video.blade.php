@@ -154,13 +154,14 @@
 
 
 
-<p class="mb-0">
+
+<p class="mb-0" style="display:block;margin-top: 10px;">
 
 <i class="fa fa-thumbs-up"></i>
     <a href="#" videoId="{{ $video->id }}" class="seevideoLikes"  data-toggle="modal" data-target="#modelseevideoLikes"  style="text-decoration: none;" >&nbsp 
 
 
-   <span videoId="{{ $video->id }}" class="videoLikeCount" count="{{ $video->likes->count() }} "> {{ $video->likes->count() }} </span> People Like This
+   <span videoId="{{ $video->id }}" class="videoLikeCount" count="{{ $video->likes->count() }} "> {{ $video->likes->count() }} </span> Like This
 
 </a>
   
@@ -169,7 +170,7 @@
 <a href="#"  class="seevideoDislikes" videoId="{{ $video->id }}" style="text-decoration: none;" data-toggle="modal" data-target="#modelseevideoDislikes" >&nbsp 
 
 
-   <span videoId="{{ $video->id }}" class="videoDislikeCount" count="{{ $video->dislikes->count() }}"> {{ $video->dislikes->count() }} </span> People Dislike This</a>
+   <span videoId="{{ $video->id }}" class="videoDislikeCount" count="{{ $video->dislikes->count() }}"> {{ $video->dislikes->count() }} </span> Dislike This</a>
 
 
 <br />  <br />
@@ -276,11 +277,15 @@
 </p>
 </div>
 
-<div class="single-video-info-content box mb-3">
 
 
 
                         @if($video->isOwner())
+
+                        <div class="single-video-info-content box mb-3">
+
+
+
                         &nbsp 
 
                         <a href="{{ route('editVideoPage',$video->id) }}" style="color:#fff;">
@@ -295,8 +300,9 @@
 <i class="fa fa-trash"></i> &nbsp Delete
 
                         </a>
+                        </div>
+
                               @endif    
-</div>
 
 
 

@@ -87,24 +87,52 @@
 
 
 <div class="d-md-none d-lg-none">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+    <nav class="navbar navbar-expand-lg " style="background-color: #232323 !important;">
+      <a class="navbar-brand " style="width: 80%;margin-top: 10px;" href="{{ route('landingPage') }}">
+
+        <img class="img-fluid" alt="" src="/img/logo-6.png"
+                ></a>
+
+        <button class="navbar-toggler btn-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"  > <i class="fa fa-bars" style="color: #222;margin-top: 4px;">
+              
+          </i></span>
         </button>
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+
           <ul class="navbar-nav mr-auto">
+            
+            <li>
+                
+     <form class="d-md-inline-block form-inline mr-0 mr-md-5 my-2 my-md-0 osahan-navbar-search" style="width: 45%;margin-left: 5px !important;" 
+            action="{{ route('searchVideo')}}">
+            <div class="input-group">
+    
+    
+                <input type="text" name="q" class="form-control" placeholder="Search for...">
+                <div class="input-group-append">
+                    <button class="btn btn-light" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+            </li>
+
+
             <li class="nav-item active">
-                <a class="nav-link" href="{{ route('landingPage') }}">
-                    <i class="fas fa-fw fa-home"></i>
+                <a class="nav-link" href="{{ route('landingPage') }}" style="color:#fff;">
+                    <i class="fas fa-fw fa-home"></i> &nbsp 
                     <span>Home</span>
                 </a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
-                    <i class="fas fa-fw fa-video"></i>
+                    aria-expanded="false" style="color:#fff;">
+                    <i class="fas fa-fw fa-video"></i> &nbsp 
                     <span>Explore</span>
                 </a>
                 <div class="dropdown-menu">
@@ -116,8 +144,8 @@
     
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/community">
-                    <i class="fas fa-fw fa-users"></i>
+                <a class="nav-link" href="/community" style="color:#fff;">
+                    <i class="fas fa-fw fa-users"></i> &nbsp 
                     <span>Community</span>
                 </a>
             </li>
@@ -125,15 +153,40 @@
             @if(\Auth::check())
     
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('videoUploadPage') }}">
-                    <i class="fas fa-fw fa-cloud-upload-alt"></i>
+                <a class="nav-link" href="{{ route('videoUploadPage') }}" style="color:#fff;">
+                    <i class="fas fa-fw fa-cloud-upload-alt"></i> &nbsp 
                     <span>Upload Video</span>
                 </a>
             </li>
+
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="/settings" style="color:#fff;">
+                    <i class="fas fa-fw fa-cog "></i> &nbsp 
+                    <span>Settings</span>
+                </a>
+            </li>
+ 
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal" style="color:#fff;">
+                    <i class="fas fa-fw fa-sign-out-alt "></i> &nbsp 
+                    <span>Logout</span>
+                </a>
+            </li>
+ 
+
+
+
             @endif
-            <li class="nav-item channel-sidebar-list">
+
+
+
+
+
+            <li class="nav-item channel-sidebar-list" style="padding-left: 0px;">
                 <h6>
-                    <!-- <i class="fas fa-fw fa-list-alt"></i> &nbsp -->
+                    <i class="fas fa-fw fa-list-alt"></i> &nbsp
                     Categories</h6>
                 <ul>
     
@@ -153,9 +206,9 @@
           
         </div>
       </nav>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        
-      </form>
+
+
+
+
 </div>
     
