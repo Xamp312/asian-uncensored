@@ -39,6 +39,7 @@ class VideoController extends Controller
             $image = $request->file('image');
             $filename = $slug. '.' . $image->getClientOriginalExtension();
             $image = Image::make($image);
+            $image->resize(420, 240);
 
             $image->save('uploads/thumbnails/' . $filename);
 
@@ -49,7 +50,6 @@ class VideoController extends Controller
         if($request->hasFile('video')){
             $video1 = $request->file('video');
             $filename = $slug. '.' . $video1->getClientOriginalExtension();
-
             $path = public_path('/uploads/videos');
             $video1->move($path, $filename);
             $video->video_name = $filename;

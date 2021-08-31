@@ -146,6 +146,7 @@ class AdminController extends Controller
             $image = $request->file('image');
             $filename = $video->slug. '.' . $image->getClientOriginalExtension();
             $image = Image::make($image);
+            $image->resize(420, 240);
 
             $image->save('uploads/thumbnails/' . $filename);
 

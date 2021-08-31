@@ -130,6 +130,7 @@
                                 <div class="form-group">
                                     <label for="e4">Video Thumbnail</label>
                                     <input id="e4" type="file" name="image"  />
+                                    <p>(Optimal Size : 840 X 480)</p>
 
                                 </div>
                             </div>

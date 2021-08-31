@@ -110,6 +110,7 @@
                                 <div class="form-group">
                                     <label for="e4">Video Thumbnail</label>
                                     <input id="e4" type="file" name="image" />
+                                    <p class="mt-1">(Optimal Size : 840 X 480)</p>
 
                                 </div>
                             </div>
@@ -118,6 +119,7 @@
                                 <div class="form-group">
                                     <label for="e9">Video Source</label>
                                     <input id="e4" type="file" name="video" />
+                                    <p class="mt-1">(Optimal Size : 840 X 480)</p>
 
                                 </div>
                             </div>
