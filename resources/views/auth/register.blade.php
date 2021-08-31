@@ -11,8 +11,8 @@
 <section class="login-main-wrapper">
 <div class="container-fluid pl-0 pr-0">
 <div class="row no-gutters">
-<div class="col-md-5 p-5 bg-white full-height">
-<div class="login-main-left">
+<div class="col-md-4 col-sm-12 p-5 bg-white">
+<div class="" >
 <div class="text-center mb-5 login-main-left-header pt-4">
     <a href="{{ route('landingPage') }}">
 <img src="img/logo-2.png" class="img-fluid" alt="LOGO">
@@ -113,7 +113,10 @@
 </div>
 </div>
 </div>
-<div class="col-md-7">
+
+
+
+<div class="col-sm-12 col-md-7">
 <div class="login-main-right bg-white p-5 mt-5 mb-5">
 <div class="owl-carousel owl-carousel-login">
 <div class="item">
@@ -140,6 +143,8 @@
 </div>
 </div>
 </div>
+
+
 </div>
 </div>
 </section>

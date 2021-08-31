@@ -22,7 +22,7 @@
 
 
 
-    <body id="login-main-body">
+    <body id="">
       @yield('content')
 
 
