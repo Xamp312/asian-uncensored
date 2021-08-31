@@ -62,7 +62,7 @@ class AdminController extends Controller
         }
         $video->delete();
 
-        return redirect()->back()->with('warning', 'Video Deleted Successfully');
+        return redirect()->route('home')->with('warning', 'Video Deleted Successfully');
     }
 
     public function newCat(){
