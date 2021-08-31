@@ -40,7 +40,7 @@
 <div class="col-md-8">
 <div class="single-video-left">
 <div class="single-video" videoId="{{ $video->id }}">
-  <video controls controlsList="nodownload" width="100%"  src="/uploads/videos/{{$video->video_name}}"></video>
+  <video controls controlsList="nodownload" width="100%"   src="/uploads/videos/{{$video->video_name}}"></video>
 <!-- <iframe width="100%" height="315" src="../../../embed/8LWZSGNjuF0.html?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe> -->
 </div>
 <div class="single-video-title box mb-3">
