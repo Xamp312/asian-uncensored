@@ -55,13 +55,13 @@
 <div class="row">
 <div class="col-sm-6">
 <div class="form-group">
-<label class="control-label">Profile Picture </label>
+<label class="control-label">Profile Picture ( Optmial Dimension : 280 X 280 ) </label>
 <input class="form-control border-form-control" name="profileimage"  placeholder="Profile Picture" type="file" style="padding:3px;">
 </div>
 </div>
 <div class="col-sm-6">
 <div class="form-group">
-<label class="control-label">Cover Picture </label>
+<label class="control-label">Cover Picture ( Optmial Dimension : 1500 X 400 ) </label>
 <input class="form-control border-form-control" name="coverimage"  placeholder="Cover Picture" type="file" style="padding:3px;">
 
 </div>

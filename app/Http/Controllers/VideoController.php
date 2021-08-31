@@ -150,6 +150,7 @@ class VideoController extends Controller
        
         $videos = Video::inRandomOrder()->limit(10)->get();
 
+
         if(Auth::check()){
             $user = User::find(Auth::id()); 
             $user->video_id = $video->id; 
@@ -196,8 +197,8 @@ class VideoController extends Controller
         $usersOnVideo = User::where('video_id', $video->id)
                                 ->get();
 
-
-        $rate = Rate::where('video_id', $video->id)
+if(Auth::check()){
+ $rate = Rate::where('video_id', $video->id)
                         ->where('user_id', Auth::user()->id)
                                 ->first();
         
@@ -208,6 +209,12 @@ class VideoController extends Controller
         else {
             $userRating = 0;
         }
+}
+else{
+    $userRating = 0;
+
+}
+       
 
 
         $usersOnVideoOnline = array();
@@ -228,6 +235,8 @@ class VideoController extends Controller
 
     public function videoReact(Request $request)
     {
+
+        if(Auth::check()){
 
         $video = Video::find($request->videoId);
         $videoReact = Vote::where('video_id', $request->videoId)
@@ -251,6 +260,8 @@ class VideoController extends Controller
         }
         $videoReact->delete();
         $newVote->save();
+    }
+
     }
 
 

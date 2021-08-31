@@ -100,7 +100,7 @@ class HomeController extends Controller
                 $image = $request->file('coverimage');
                 $filename = $slug. '.' . $image->getClientOriginalExtension();
                 $image = Image::make($image);
-
+                $image->resize(1500, 400);
                 $image->save('uploads/users/cover/' . $filename);
 
                 $user->cover = $filename;
@@ -113,7 +113,7 @@ class HomeController extends Controller
                 $image = $request->file('profileimage');
                 $filename = $slug. '.' . $image->getClientOriginalExtension();
                 $image = Image::make($image);
-
+                $image->resize(280, 280);
                 $image->save('uploads/users/profile/' . $filename);
 
                 $user->image = $filename;

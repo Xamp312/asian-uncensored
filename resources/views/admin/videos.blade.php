@@ -41,8 +41,9 @@
                                     <td>
                                     {{$video->created_at}}
                                     </td>
-                                    <th scope="row">
+                                    <th scope="row"> <a href="{{route('videoPage', $video->slug)}}">
                                         {{$video->title}}
+                                        </a>
                                     </th>
                                     <td>
                                     {{$video->user->name}}
