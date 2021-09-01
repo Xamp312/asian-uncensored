@@ -70,7 +70,7 @@
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label for="e2">About</label>
+                                    <label for="e2">Video Description</label>
                                     <textarea rows="3" id="e2" name="description" class="form-control"></textarea>
                                 </div>
                             </div>

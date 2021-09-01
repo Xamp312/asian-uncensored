@@ -116,7 +116,7 @@
 
 
 
-<div class="col-sm-12 col-md-7 d-none d-md-block d-lg-block d-sm-block">
+<div class="col-sm-12 col-md-7 ">
 <div class="login-main-right bg-white p-5 mt-5 mb-5">
 <div class="owl-carousel owl-carousel-login">
 <div class="item">

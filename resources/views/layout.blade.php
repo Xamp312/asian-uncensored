@@ -2,8 +2,10 @@
 <html lang="en">
     <head>
 
-
         <link rel="icon" type="image/png" href="img/favi.png">
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -13,6 +15,11 @@
 
         <link rel="stylesheet" href="/vendor/owl-carousel/owl.carousel.css">
         <link rel="stylesheet" href="/vendor/owl-carousel/owl.theme.css">
+
+
+
+
+
 
       @include('partials.head')
       @yield('head_page')

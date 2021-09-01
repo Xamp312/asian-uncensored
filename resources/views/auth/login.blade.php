@@ -6,7 +6,7 @@
 <section class="login-main-wrapper" style="height: auto;">
 <div class="container-fluid pl-0 pr-0">
 <div class="row no-gutters">
-<div class="col-md-5 col-sm-12 p-5 bg-white ">
+<div class="col-md-5 col-sm-12 p-5 bg-white">
 <div class="">
 <div class="text-center mb-5 login-main-left-header pt-4">
         <a href="{{ route('landingPage') }}">
@@ -75,7 +75,7 @@
 
 
 
-<div class="col-md-7 col-sm-12 d-none d-md-block d-lg-block d-sm-block">
+<div class="col-md-7 col-sm-12">
 <div class="login-main-right bg-white p-5 mt-5 mb-5">
 <div class="owl-carousel owl-carousel-login">
 <div class="item">
