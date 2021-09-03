@@ -59,7 +59,6 @@
                     
                 </div>
             </div>
-            <hr>
             <div class="video-block section-padding">
                 <div class="row">
                     <div class="col-md-12">

@@ -19,6 +19,28 @@
 
 
 
+    
+    <style type="text/css">
+      
+    @media only screen and (max-width: 600px) {
+          #wrapper #content-wrapper .container-fluid {
+            padding-bottom: 15px !important;
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+            padding-top: 1rem !important;
+        }
+
+
+        footer.sticky-footer {
+          margin-left: 0px !important;
+      }
+
+      }
+
+    </style>
+
+
+
 
 
       @include('partials.head')
@@ -29,7 +51,7 @@
 
 
 
-    <body id="page-top" class="sidebar-toggled">
+    <body id="page-top" class="">
       @yield('content')
 
 

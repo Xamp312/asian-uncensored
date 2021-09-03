@@ -47,6 +47,8 @@
 <h2>
 
 
+@if(Auth::check())
+
                                           <span style="float: right;">
                          
 
@@ -138,8 +140,11 @@
 
     
 </span> 
-                  
 
+
+
+                  
+@endif
 
 
 
@@ -185,6 +190,9 @@
 
 
 
+
+@if(Auth::check())
+
 <div class="float-right">
 
 
@@ -208,6 +216,7 @@
 
 </div>
 
+@endif
 
 <img class="img-fluid" src="/uploads/users/profile/{{ $video->user->image }}" alt="">
 

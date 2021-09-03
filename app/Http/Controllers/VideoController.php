@@ -197,8 +197,8 @@ class VideoController extends Controller
         $usersOnVideo = User::where('video_id', $video->id)
                                 ->get();
 
-if(Auth::check()){
- $rate = Rate::where('video_id', $video->id)
+     if(Auth::check()){
+        $rate = Rate::where('video_id', $video->id)
                         ->where('user_id', Auth::user()->id)
                                 ->first();
         
@@ -209,11 +209,11 @@ if(Auth::check()){
         else {
             $userRating = 0;
         }
-}
-else{
-    $userRating = 0;
+    }
+    else{
+        $userRating = 0;
 
-}
+    }
        
 
 

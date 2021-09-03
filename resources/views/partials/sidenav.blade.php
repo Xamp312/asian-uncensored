@@ -1,5 +1,5 @@
 <div class="d-none d-md-block d-lg-block d-sm-block" >
-    <ul class="sidebar navbar-nav toggled">
+    <ul class="sidebar navbar-nav">
         <li class="nav-item active">
             <a class="nav-link" href="{{ route('landingPage') }}">
                 <i class="fas fa-fw fa-home"></i>
