@@ -366,7 +366,7 @@ Sort by <i class="fa fa-caret-down" aria-hidden="true"></i>
 <a href="{{ route('videoPage', $video->slug) }}">{{ $video->title }}</a>
 </div>
 <div class="video-page text-success">
-{{ \App\Models\Category::find($video->category_id)->name }}  <!-- <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a> -->
+{{ \App\Models\User::find($video->user_id)->name }}  <!-- <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a> -->
 </div>
 <div class="video-view">
     {{ $video->views }} views &nbsp; <i class="fas fa-calendar-alt"></i> {{ $video->created_at->diffForHumans() }} </div>

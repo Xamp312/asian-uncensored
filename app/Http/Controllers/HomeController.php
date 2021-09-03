@@ -35,11 +35,16 @@ class HomeController extends Controller
             $categories = Category::orderBy('count', 'desc')->get();
             $catsCount = $categories->count();
 
+
+
             return view('admin.home', compact('usersCount', 'videosCount', 'catsCount', 'categories'));
 
         } else {
 
             $videos = Video::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
+
+
+
             return view('home', compact('user', 'videos'));
 
         }

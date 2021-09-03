@@ -85,7 +85,7 @@
                                     <a href="{{ route('videoPage', $video->slug) }}">{{ $video->title }}</a>
                                 </div>
                                 <div class="video-page text-success">
-                                    {{ \App\Models\Category::find($video->category_id)->name }}
+                                    {{ \App\Models\User::find($video->user_id)->name }}
 
                                     <!--            <a title="" data-placement="top" data-toggle="tooltip" href="#"
                                             data-original-title="Verified"><i
