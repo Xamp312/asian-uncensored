@@ -129,6 +129,10 @@
 
 
                     </div>
+                    <div class="progress">
+                        <div class="bar"></div >
+                        <div class="percent">0%</div >
+                    </div>
                     <div class="osahan-area text-center mt-3">
                         <button type="submit" class="btn btn-outline-primary"><i
                                 class="fas fa-fw fa-cloud-upload-alt"></i>
@@ -153,5 +157,38 @@
 
 
 </div>
+
+@section('footer_page')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.js"></script>
+
+<script type="text/javascript">
+    $(function() {
+         $(document).ready(function()
+         {
+            var bar = $('.bar');
+            var percent = $('.percent');
+
+      $('form').ajaxForm({
+        beforeSend: function() {
+            var percentVal = '0%';
+            bar.width(percentVal)
+            percent.html(percentVal);
+        },
+        uploadProgress: function(event, position, total, percentComplete) {
+            var percentVal = percentComplete + '%';
+            bar.width(percentVal)
+            percent.html(percentVal);
+        },
+        complete: function(xhr) {
+            alert('File Uploaded Successfully');
+            window.location.href = "/fileupload";
+        }
+      });
+   }); 
+ });
+</script>
+@endsection
+
 
 @endsection
