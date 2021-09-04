@@ -84,7 +84,9 @@
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label for="e2">Description</label>
+
+                                    <label for="e2">Video Description</label>
+
                                     <textarea rows="3" id="e2" name="description" class="form-control"></textarea>
                                 </div>
                             </div>
@@ -124,6 +126,7 @@
                                 <div class="form-group">
                                     <label for="e4">Video Thumbnail</label>
                                     <input id="e4" type="file" name="image" />
+                                    <p class="mt-1">(Optimal Size : 840 X 480)</p>
 
                                 </div>
                             </div>
@@ -132,6 +135,7 @@
                                 <div class="form-group">
                                     <label for="e9">Video Source</label>
                                     <input id="e4" type="file" name="video" />
+                                    <p class="mt-1">(Optimal Size : 1920 X 1080)</p>
 
                                 </div>
                             </div>

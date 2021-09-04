@@ -35,11 +35,16 @@ class HomeController extends Controller
             $categories = Category::orderBy('count', 'desc')->get();
             $catsCount = $categories->count();
 
+
+
             return view('admin.home', compact('usersCount', 'videosCount', 'catsCount', 'categories'));
 
         } else {
 
             $videos = Video::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
+
+
+
             return view('home', compact('user', 'videos'));
 
         }
@@ -100,7 +105,7 @@ class HomeController extends Controller
                 $image = $request->file('coverimage');
                 $filename = $slug. '.' . $image->getClientOriginalExtension();
                 $image = Image::make($image);
-
+                $image->resize(1500, 400);
                 $image->save('uploads/users/cover/' . $filename);
 
                 $user->cover = $filename;
@@ -113,7 +118,7 @@ class HomeController extends Controller
                 $image = $request->file('profileimage');
                 $filename = $slug. '.' . $image->getClientOriginalExtension();
                 $image = Image::make($image);
-
+                $image->resize(280, 280);
                 $image->save('uploads/users/profile/' . $filename);
 
                 $user->image = $filename;

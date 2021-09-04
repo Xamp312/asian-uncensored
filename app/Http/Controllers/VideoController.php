@@ -39,6 +39,7 @@ class VideoController extends Controller
             $image = $request->file('image');
             $filename = $slug. '.' . $image->getClientOriginalExtension();
             $image = Image::make($image);
+            $image->resize(420, 240);
 
             $image->save('uploads/thumbnails/' . $filename);
 
@@ -49,7 +50,6 @@ class VideoController extends Controller
         if($request->hasFile('video')){
             $video1 = $request->file('video');
             $filename = $slug. '.' . $video1->getClientOriginalExtension();
-
             $path = public_path('/uploads/videos');
             $video1->move($path, $filename);
             $video->video_name = $filename;
@@ -150,6 +150,7 @@ class VideoController extends Controller
        
         $videos = Video::inRandomOrder()->limit(10)->get();
 
+
         if(Auth::check()){
             $user = User::find(Auth::id()); 
             $user->video_id = $video->id; 
@@ -196,7 +197,7 @@ class VideoController extends Controller
         $usersOnVideo = User::where('video_id', $video->id)
                                 ->get();
 
-
+     if(Auth::check()){
         $rate = Rate::where('video_id', $video->id)
                         ->where('user_id', Auth::user()->id)
                                 ->first();
@@ -208,6 +209,12 @@ class VideoController extends Controller
         else {
             $userRating = 0;
         }
+    }
+    else{
+        $userRating = 0;
+
+    }
+       
 
 
         $usersOnVideoOnline = array();
@@ -228,6 +235,8 @@ class VideoController extends Controller
 
     public function videoReact(Request $request)
     {
+
+        if(Auth::check()){
 
         $video = Video::find($request->videoId);
         $videoReact = Vote::where('video_id', $request->videoId)
@@ -251,6 +260,8 @@ class VideoController extends Controller
         }
         $videoReact->delete();
         $newVote->save();
+    }
+
     }
 
 

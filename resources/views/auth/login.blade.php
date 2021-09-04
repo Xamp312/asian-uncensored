@@ -3,11 +3,11 @@
 @section('content')
 
 
-<section class="login-main-wrapper">
+<section class="login-main-wrapper" style="height: auto;">
 <div class="container-fluid pl-0 pr-0">
 <div class="row no-gutters">
-<div class="col-md-5 p-5 bg-white full-height">
-<div class="login-main-left">
+<div class="col-md-5 col-sm-12 p-5 bg-white">
+<div class="">
 <div class="text-center mb-5 login-main-left-header pt-4">
         <a href="{{ route('landingPage') }}">
 
@@ -72,7 +72,10 @@
 </div>
 </div>
 </div>
-<div class="col-md-7">
+
+
+
+<div class="col-md-7 col-sm-12">
 <div class="login-main-right bg-white p-5 mt-5 mb-5">
 <div class="owl-carousel owl-carousel-login">
 <div class="item">
@@ -99,6 +102,10 @@
 </div>
 </div>
 </div>
+
+
+
+
 </div>
 </div>
 </section>

@@ -40,12 +40,14 @@
 <div class="col-md-8">
 <div class="single-video-left">
 <div class="single-video" videoId="{{ $video->id }}">
-  <video controls controlsList="nodownload" width="100%" src="/uploads/videos/{{$video->video_name}}"></video>
+  <video controls controlsList="nodownload" width="100%"   src="/uploads/videos/{{$video->video_name}}"></video>
 <!-- <iframe width="100%" height="315" src="../../../embed/8LWZSGNjuF0.html?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe> -->
 </div>
 <div class="single-video-title box mb-3">
 <h2>
 
+
+@if(Auth::check())
 
                                           <span style="float: right;">
                          
@@ -138,8 +140,11 @@
 
     
 </span> 
-                  
 
+
+
+                  
+@endif
 
 
 
@@ -154,13 +159,14 @@
 
 
 
-<p class="mb-0">
+
+<p class="mb-0" style="display:block;margin-top: 10px;">
 
 <i class="fa fa-thumbs-up"></i>
     <a href="#" videoId="{{ $video->id }}" class="seevideoLikes"  data-toggle="modal" data-target="#modelseevideoLikes"  style="text-decoration: none;" >&nbsp 
 
 
-   <span videoId="{{ $video->id }}" class="videoLikeCount" count="{{ $video->likes->count() }} "> {{ $video->likes->count() }} </span> People Like This
+   <span videoId="{{ $video->id }}" class="videoLikeCount" count="{{ $video->likes->count() }} "> {{ $video->likes->count() }} </span> Like This
 
 </a>
   
@@ -169,11 +175,11 @@
 <a href="#"  class="seevideoDislikes" videoId="{{ $video->id }}" style="text-decoration: none;" data-toggle="modal" data-target="#modelseevideoDislikes" >&nbsp 
 
 
-   <span videoId="{{ $video->id }}" class="videoDislikeCount" count="{{ $video->dislikes->count() }}"> {{ $video->dislikes->count() }} </span> People Dislike This</a>
+   <span videoId="{{ $video->id }}" class="videoDislikeCount" count="{{ $video->dislikes->count() }}"> {{ $video->dislikes->count() }} </span> Dislike This</a>
 
 
 <br />  <br />
-<small style="">Published {{ $video->created_at->diffForHumans() }}</small>
+<small >Published {{ $video->created_at->diffForHumans() }}</small>
 
 
 
@@ -183,6 +189,9 @@
 
 
 
+
+
+@if(Auth::check())
 
 <div class="float-right">
 
@@ -207,6 +216,7 @@
 
 </div>
 
+@endif
 
 <img class="img-fluid" src="/uploads/users/profile/{{ $video->user->image }}" alt="">
 
@@ -276,11 +286,15 @@
 </p>
 </div>
 
-<div class="single-video-info-content box mb-3">
 
 
 
                         @if($video->isOwner())
+
+                        <div class="single-video-info-content box mb-3">
+
+
+
                         &nbsp 
 
                         <a href="{{ route('editVideoPage',$video->id) }}" style="color:#fff;">
@@ -295,8 +309,9 @@
 <i class="fa fa-trash"></i> &nbsp Delete
 
                         </a>
+                        </div>
+
                               @endif    
-</div>
 
 
 
@@ -351,7 +366,7 @@ Sort by <i class="fa fa-caret-down" aria-hidden="true"></i>
 <a href="{{ route('videoPage', $video->slug) }}">{{ $video->title }}</a>
 </div>
 <div class="video-page text-success">
-{{ \App\Models\Category::find($video->category_id)->name }}  <!-- <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a> -->
+{{ \App\Models\User::find($video->user_id)->name }}  <!-- <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></a> -->
 </div>
 <div class="video-view">
     {{ $video->views }} views &nbsp; <i class="fas fa-calendar-alt"></i> {{ $video->created_at->diffForHumans() }} </div>
