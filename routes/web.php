@@ -3,7 +3,6 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\CommunityController;
-use Artisan;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 
