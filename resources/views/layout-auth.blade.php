@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="icon" type="image/png" href="img/favi.png">
 
@@ -9,10 +10,11 @@
 
         <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
-        <link href="/css/osahan.css" rel="stylesheet">
 
         <link rel="stylesheet" href="/vendor/owl-carousel/owl.carousel.css">
         <link rel="stylesheet" href="/vendor/owl-carousel/owl.theme.css">
+        <link href="/css/osahan.css" rel="stylesheet">
+
 
       @include('partials.head')
       @yield('head_page')
@@ -22,7 +24,7 @@
 
 
 
-    <body id="login-main-body">
+    <body id="">
       @yield('content')
 
 

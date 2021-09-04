@@ -74,19 +74,21 @@ $(document).keydown(function(e){
   const objowlcarousel = $('.owl-carousel-category');
   if (objowlcarousel.length > 0) {
     objowlcarousel.owlCarousel({
+      responsiveClass: true,
+      margin: 10,
       responsive: {
-        0:{
-            items:1,
+        
+        480:{
+          items:1,
         },
         600:{
-            items:3,
-            nav:false
+            items:2,
         },
         1000: {
-          items: 4,
+          items: 3,
         },
         1200: {
-          items: 8,
+          items: 5,
         },
       },
       loop: true,
@@ -95,8 +97,7 @@ $(document).keydown(function(e){
       autoplaySpeed: 1000,
       autoplayTimeout: 2000,
       autoplayHoverPause: true,
-      nav: true,
-      navText:["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"],
+      
     });
   }
 

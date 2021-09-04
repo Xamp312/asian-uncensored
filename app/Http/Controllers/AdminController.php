@@ -62,7 +62,7 @@ class AdminController extends Controller
         }
         $video->delete();
 
-        return redirect()->back()->with('warning', 'Video Deleted Successfully');
+        return redirect()->route('home')->with('warning', 'Video Deleted Successfully');
     }
 
     public function newCat(){
@@ -146,6 +146,7 @@ class AdminController extends Controller
             $image = $request->file('image');
             $filename = $video->slug. '.' . $image->getClientOriginalExtension();
             $image = Image::make($image);
+            $image->resize(420, 240);
 
             $image->save('uploads/thumbnails/' . $filename);
 

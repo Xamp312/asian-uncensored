@@ -3,6 +3,16 @@
 
 @section('head_page')
     <title>Asian Uncensored</title>
+
+        <style type="text/css">
+    	
+    	.aboutBlock {
+    		 background: #1c1c1c none repeat scroll 0 0;
+     border-radius: 2px;
+     transition-duration: 0.4s;
+     margin-bottom: 10px;padding-top: 1rem;
+    	}
+    </style>
 @endsection
 
 
@@ -17,13 +27,13 @@
  <div class="single-channel-page" id="content-wrapper">
 <div class="single-channel-image">
 @if($user->cover)
-    <img class="img-fluid" alt="" src="/uploads/users/cover/{{$user->cover}}">
+    <img class="img-fluid " alt="" src="/uploads/users/cover/{{$user->cover}}">
 
     @else
-<img class="img-fluid" alt="" src="img/channel-banner.png">
+<img class="img-fluid " alt="" src="img/channel-banner.png">
 @endif
 <div class="channel-profile">
-<img class="channel-profile-img" alt="" src="/uploads/users/profile/{{$user->image}}">
+<img class="channel-profile-img d-none d-sm-block" alt="" src="/uploads/users/profile/{{$user->image}}">
 <div class="social hidden-xs">
 Social &nbsp;
 <a class="fb" href="{{$user->facebook}}">Facebook</a>
@@ -32,28 +42,27 @@ Social &nbsp;
 </div>
 </div>
 </div>
+
+
 <div class="single-channel-nav">
 <nav class="navbar navbar-expand-lg navbar-light">
-<a class="channel-brand" href="#" >{{$user->name}} <span title="" data-placement="top" data-toggle="tooltip" data-original-title="Verified"><i class="fas fa-check-circle text-success"></i></span></a>
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-<span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarSupportedContent">
-<ul class="navbar-nav mr-auto">
+
+<img class="channel-profile-img d-sm-block d-md-none" alt="" src="/uploads/users/profile/{{$user->image}}">
+
+
+<a class="channel-brand" href="#">{{$user->name}}
+
+</a>
+
+
+
+<ul class="navbar-nav ">
 <li class="nav-item active showVideos">
-<a class="nav-link " href="#" >Videos <span class="sr-only">(current)</span></a>
+<a class="nav-link " href="#"  style="text-decoration: none;" >Videos <span class="sr-only">(current)</span></a>
 </li>
-<!-- <li class="nav-item">
-<a class="nav-link" href="#">Playlist</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="#">Channels</a>
-</li>
-<li class="nav-item">
-<a class="nav-link" href="#">Discussion</a>
-</li> -->
+
 <li class="nav-item showAbout">
-<a class="nav-link " href="#">About</a>
+<a class="nav-link " href="#" style="text-decoration: none;">About</a>
 </li>
 
 
@@ -61,8 +70,6 @@ Social &nbsp;
 
 </ul>
 
-
-</div>
 </nav>
 </div>
 
@@ -93,8 +100,6 @@ Social &nbsp;
 
 </div>
 </div>
-
-
 
 
 
