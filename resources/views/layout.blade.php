@@ -45,6 +45,8 @@
 
       @include('partials.head')
       @yield('head_page')
+     
+      <?php echo $adSettings->verification_script; ?>
 
 
     </head>
@@ -52,6 +54,9 @@
 
 
     <body id="page-top" class="">
+
+      <?php echo $adSettings->popunder_script; ?>
+
       @yield('content')
 
 
