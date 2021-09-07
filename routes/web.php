@@ -66,6 +66,18 @@ Route::post('/settings', [HomeController::class, 'settingsUpdate'])->name('setti
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //Admin Routes
+Route::get('/ads/list', 'App\Http\Controllers\AdminController@ads')->name('ads');
+Route::get('/ad/edit/{id}', 'App\Http\Controllers\AdminController@editAd')->name('editAd');
+Route::post('/ad/update', 'App\Http\Controllers\AdminController@updateAd')->name('updateAd');
+Route::get('/ad/delete/{id}', 'App\Http\Controllers\AdminController@deleteAd')->name('deleteAd');
+
+Route::get('/ad/create', 'App\Http\Controllers\AdminController@newAd')->name('newAd');
+Route::post('/ad/create', 'App\Http\Controllers\AdminController@createAd')->name('createAd');
+
+
+Route::get('/ad/settings', 'App\Http\Controllers\AdminController@adSettings')->name('adSettings');
+Route::post('/ad/settings', 'App\Http\Controllers\AdminController@updateAdSettings')->name('updateAdSettings');
+
 Route::get('/category/edit/{id}', 'App\Http\Controllers\AdminController@editCat')->name('editCat');
 Route::post('/category/update', 'App\Http\Controllers\AdminController@updateCat')->name('updateCat');
 Route::post('/category/create', 'App\Http\Controllers\AdminController@createCat')->name('createCat');

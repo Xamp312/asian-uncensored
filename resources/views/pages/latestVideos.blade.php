@@ -12,25 +12,19 @@
 
     @include('partials.sidenav')
 
-
+<!-- JuicyAds v3.1 -->
+<script type="text/javascript" data-cfasync="false" async src="https://poweredby.jads.co/js/jads.js"></script>
+<ins id="943942" data-width="728" data-height="102"></ins>
+<script type="text/javascript" data-cfasync="false" async>(adsbyjuicy = window.adsbyjuicy || []).push({'adzone':943942});</script>
+<!--JuicyAds END-->
 
     <div id="content-wrapper">
         <div class="container-fluid pb-0">
-            <div class="top-mobile-search">
-                <div class="row">
-                    <div class="col-md-12">
-                        <form class="mobile-search">
-                            <div class="input-group">
-                                <input type="text" placeholder="Search for..." class="form-control">
-                                <div class="input-group-append">
-                                    <button type="button" class="btn btn-dark"><i class="fas fa-search"></i></button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-   
+
+                       @include('partials.ads')
+
+
+
             <div class="video-block section-padding">
                 <div class="row">
                     <div class="col-md-12">

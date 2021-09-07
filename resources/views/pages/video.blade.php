@@ -35,6 +35,11 @@
 
     <div id="content-wrapper">
 <div class="container-fluid pb-0">
+
+             @include('partials.ads')
+
+
+
 <div class="video-block section-padding">
 <div class="row">
 <div class="col-md-8">
@@ -321,12 +326,30 @@
 <div class="single-video-right">
 <div class="row">
 <div class="col-md-12">
-<div class="adblock">
-<div class="img">
-Google AdSense<br>
-336 x 280
+
+@foreach($sideNavAdTopAds as $sideNavAdTopAd)
+
+    @if($sideNavAdTopAd->screen == "desktop")
+        <div class="d-none d-md-block d-lg-block d-sm-block">
+
+            <?php echo $sideNavAdTopAd->script; ?>
+
+        </div>
+
+    @else 
+        <div class="d-md-none d-lg-none">
+            <?php echo $sideNavAdTopAd->script; ?>
+
+        </div>
+
+    @endif 
+
+@endforeach
+
 </div>
-</div>
+
+
+
 <div class="main-title">
 <!-- <div class="btn-group float-right right-action">
 <a href="#" class="right-action-link text-gray" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -382,15 +405,35 @@ Sort by <i class="fa fa-caret-down" aria-hidden="true"></i>
 
 
 
-<div class="adblock mt-0">
-<div class="img">
-Google AdSense<br>
-336 x 280
-</div>
-</div>
+@foreach($sideNavAdBottomAds as $sideNavAdBottomAd)
+
+    @if($sideNavAdBottomAd->screen == "desktop")
+        <div class="d-none d-md-block d-lg-block d-sm-block">
+
+            <?php echo $sideNavAdBottomAd->script; ?>
+
+        </div>
+
+    @else 
+        <div class="d-md-none d-lg-none">
+            <?php echo $sideNavAdBottomAd->script; ?>
+
+        </div>
+
+    @endif 
+
+@endforeach
+
+
+
+
 
 
 </div>
+
+
+
+
 </div>
 </div>
 </div>

@@ -15,6 +15,11 @@
 
     <div id="content-wrapper">
         <div class="container-fluid upload-details">
+
+                       @include('partials.ads')
+
+
+
             <div class="row">
                 <div class="col-lg-12">
 

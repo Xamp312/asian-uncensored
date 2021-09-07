@@ -17,6 +17,11 @@
     <div id="content-wrapper">
         <div class="container-fluid pb-0">
            
+
+           @include('partials.ads')
+
+
+
             <div class="top-category section-padding mb-4">
                 <div class="row">
                     <div class="col-md-12">
@@ -81,7 +86,7 @@
                                         Close</a>
                                 </div>
                             </div> -->
-                            <h6 class="text-capitalize">{{$cat1->name}}</h6>
+                            <h6 class="text-capitalize">Category: {{$cat1->name}}</h6>
                         </div>
                     </div>
 

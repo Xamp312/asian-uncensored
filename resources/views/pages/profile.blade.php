@@ -18,9 +18,12 @@
 
 @section('content')
 @include('partials.nav')
+
+
 <div id="wrapper">
 
     @include('partials.sidenav')
+           @include('partials.ads')
 
 
 

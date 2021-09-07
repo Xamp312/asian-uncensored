@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Category;
+use App\Models\Ads;
+use App\Models\AdsSettings;
+
 use App\Models\Video;
 use File;
 use Image;
@@ -107,6 +110,99 @@ class AdminController extends Controller
         return view('admin.videos',compact('videos'));
     }
 
+
+    public function ads(){
+
+        $ads = Ads::orderBy('created_at', 'desc')->get();
+        return view('admin.ads',compact('ads'));
+    }
+
+    public function adSettings(){
+
+        $adSettings = AdsSettings::orderBy('created_at', 'desc')->first();
+
+        return view('admin.adSettings',compact('adSettings'));
+    }
+
+    public function updateAdSettings(Request $request){
+
+        
+        $adSettings = AdsSettings::find(1);
+        $adSettings->popunder_script = $request->popunder; 
+        $adSettings->verification_script = $request->verification; 
+        $adSettings->save();
+
+
+        $adSettings = AdsSettings::orderBy('created_at', 'desc')->first();
+
+        return redirect()->route('adSettings')->with('success', 'Ad Settings Successfully Updated');
+    }
+
+
+
+    public function newAd(){
+
+
+        return view('admin.newAd');
+    }
+
+
+
+    public function createAd(Request $request){
+
+        $ad = new Ads;
+
+        $ad->name = $request->name;
+        $ad->script = $request->script;
+        $ad->position = $request->position;
+        $ad->place = $request->place;
+        $ad->screen = $request->screen;
+
+
+        $ad->save();
+
+        return redirect()->route('ads')->with('success', 'Ad Created Successfully');
+    }
+
+
+    public function updateAd(Request $request){
+
+        $ad = Ads::find($request->id);
+
+        $ad->name = $request->name;
+        $ad->script = $request->script;
+        $ad->position = $request->position;
+        $ad->place = $request->place;
+        $ad->screen = $request->screen;
+
+
+        $ad->save();
+
+        return redirect()->route('ads')->with('success', 'Ad Edited Successfully');
+    }
+
+
+
+  public function editAd($id){
+
+        $ad = Ads::find($id);
+
+        return view('admin.editAd', compact('ad'));
+    }
+    
+
+    public function deleteAd($id){
+
+        $ad = Ads::find($id);
+
+
+
+        $ad->delete();
+
+        return redirect()->route('ads')->with('warning', 'Ad Deleted Successfully');
+    }
+
+
     public function editVideo($id){
 
         $video = Video::find($id);
@@ -115,6 +211,9 @@ class AdminController extends Controller
         return view('admin.editVideo', compact('video', 'cat1'));
     }
     
+
+
+
     public function updateVideo(Request $request){
 
         $video = video::find($request->id);

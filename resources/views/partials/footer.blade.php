@@ -1,3 +1,25 @@
+@foreach($footerAds as $footerAd)
+
+    @if($footerAd->screen == "desktop")
+        <div class="d-none d-md-block d-lg-block d-sm-block">
+
+            <?php echo $footerAd->script; ?>
+
+        </div>
+
+    @else 
+        <div class="d-md-none d-lg-none">
+            <?php echo $footerAd->script; ?>
+
+        </div>
+
+    @endif 
+
+@endforeach
+
+
+
+
 <footer class="sticky-footer">
     <div class="container">
         <div class="row no-gutters">

@@ -59,11 +59,13 @@
             <a class="dropdown-item  " href="{{route('videos')}}">
               <i class="ni ni-settings-gear-65"></i> Videos
             </a>
+
             <a class="dropdown-item  " href="{{route('newCat')}}">
               <i class="ni ni-box-2 "></i> New Category
             </a>
         
 
+        
             <div class="dropdown-divider"></div>
             <a href="{{route('logout')}}" class="dropdown-item">
               <i class="ni ni-button-power"></i>
@@ -126,7 +128,16 @@
             </a>
           </li>
          
-         
+     
+
+
+          <li class="nav-item">
+            <a class="nav-link " href="{{route('ads')}}">
+              <i class="ni ni-album-2 text-blue"></i> Ads
+            </a>
+          </li>
+
+
           <!-- <li class="nav-item">
             <a class="nav-link " href="examples/maps.html">
               <i class="ni ni-pin-3 text-orange"></i> Maps
